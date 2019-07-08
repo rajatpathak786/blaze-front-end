@@ -66,12 +66,6 @@ textarea {
     padding: 0.2em 0;
 }
 
-
-/* ===== ScrollMagic Class ==============================================
-   Author: Petr Tichy - ihatetomatoes.net
-   ========================================================================== */
-
-
 body {
   font-family: Arial;
 }
@@ -80,11 +74,6 @@ body {
     width: 90%;
     margin: 0 5%;
 }
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-/* =Main */
 
  a.info{
   color: #2da1c1;
@@ -118,6 +107,7 @@ body {
 .project {
     text-align: left;
     padding: 200px ;
+    background: #060606;
     border-bottom: 10% #ebebeb solid;
     opacity: 0;
     transition: all 0.5s ease-out;
@@ -136,20 +126,16 @@ body {
 }
 #project01 h2 {
     color: #3DB3CE;
-    position: absolute;
-    left:250px;
 }
 #project02 h2 {
     color: #75C695;
-    position: absolute;
-    left:250px;
 }
 #project03 h2 {
     color: #F5876F;
-    position: absolute;
-    left:250px;
 }
-
+.page {
+  display: none;
+}
 /* =Footer */
 .footer-container {
     text-align: center;
