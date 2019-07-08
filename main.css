@@ -1,4 +1,14 @@
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+.large-header {
+  position: relative;
+  width: 100%;
+  background : #060606;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+}
+
 
 html,
 button,
@@ -52,7 +62,7 @@ textarea {
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
-    color: #000;
+    color: rgb(155, 27, 27);
     padding: 0.2em 0;
 }
 
@@ -63,7 +73,7 @@ textarea {
 
 
 body {
-    font: 16px/1.5 Helvetica, Helvetica Neue, Arial;
+  font-family: Arial;
 }
 
 .wrapper {
@@ -75,6 +85,21 @@ body {
    Author's custom styles
    ========================================================================== */
 /* =Main */
+
+ a.info{
+  color: #2da1c1;
+  position: absolute;
+  left:15%;
+ }
+
+ a.info:hover
+ {
+ color: #f90;
+ text-decoration: underline;
+
+ }
+
+
 #intro {
     height: 100vh;
     background:  #060606;
@@ -85,15 +110,15 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);  
+    transform: translate(-250%, -65%);  
 }
 #link {
     color: #fff;
 }
 .project {
-    text-align: center;
-    padding: 200px 0;
-    border-bottom: 1px #ebebeb solid;
+    text-align: left;
+    padding: 200px ;
+    border-bottom: 10% #ebebeb solid;
     opacity: 0;
     transition: all 0.5s ease-out;
 }
@@ -111,19 +136,25 @@ body {
 }
 #project01 h2 {
     color: #3DB3CE;
+    position: absolute;
+    left:250px;
 }
 #project02 h2 {
     color: #75C695;
+    position: absolute;
+    left:250px;
 }
 #project03 h2 {
     color: #F5876F;
+    position: absolute;
+    left:250px;
 }
 
 /* =Footer */
 .footer-container {
     text-align: center;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);
+    color: #000;
     background-color: #06060d; 
 }
 .footer-container .wrapper {
