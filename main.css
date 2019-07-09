@@ -7,6 +7,8 @@
   background-size: cover;
   background-position: center center;
   z-index: 10;
+  margin: 0 auto;
+  text-align: center;
 }
 
 html,
@@ -14,59 +16,68 @@ button,
 input,
 select,
 textarea {
-    color: #222;
+  color: #222;
 }
 
 html {
-    font-size: 1em;
-    line-height: 1.4;
+  font-size: 1em;
+  line-height: 1.4;
 }
 
 ::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
-    text-shadow: none;
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
 }
 
 audio,
 canvas,
 img,
 video {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
 
 .browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: rgb(155, 27, 27);
-    padding: 0.2em 0;
+  margin: 0.2em 0;
+  background: #ccc;
+  color: rgb(155, 27, 27);
+  padding: 0.2em 0;
 }
 
 body {
+  padding: 0%;
+  margin: 0%;
   font-family: Arial;
+}
+
+#scene{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background: #060606;
 }
 
 .wrapper {
@@ -86,44 +97,44 @@ a.info:hover
 }
 
 #intro {
-    height: 100vh;
-    background:  #060606;
-    text-align: center;
-    color: #fff;
+  height: 100vh;
+  background:  #060606;
+  text-align: center;
+  color: #fff;
 }
 
 #intro .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-250%, -65%);
-    opacity: 0;
-    transition: all 0.5s ease-out;  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-250%, -65%);
+  opacity: 0;
+  transition: all 0.5s ease-out;  
 }
 
 #intro .content.fade-in {
-    opacity: 1;
+  opacity: 1;
 }
 
 #link {
-    color: #fff;
+  color: #fff;
 }
 
 #main {
-    background: #060606;
+  background: #060606;
 }
 
 #section {
-    position: absolute;
+  position: absolute;
 }
 
 .project {
-    text-align: left;
-    padding: 200px;
-    background: #060606;
-    border-bottom: 10% #ebebeb solid;
-    opacity: 0;
-    transition: all 0.5s ease-out;
+  text-align: left;
+  padding: 200px;
+  background: #060606;
+  border-bottom: 10% #ebebeb solid;
+  opacity: 0;
+  transition: all 0.5s ease-out;
 }
 
 .project.fade-in {
@@ -131,21 +142,21 @@ a.info:hover
 }
 
 .project p {
-    max-width: 300px;
-    margin: 0 auto;
-    color: #294D67;
+  max-width: 300px;
+  margin: 0 auto;
+  color: #294D67;
 }
 
 #project01 h2 {
-    color: #3DB3CE;
+  color: #3DB3CE;
 }
 
 #project02 h2 {
-    color: #75C695;
+  color: #75C695;
 }
 
 #project03 h2 {
-    color: #F5876F;
+  color: #F5876F;
 }
 
 .page {
@@ -154,27 +165,27 @@ a.info:hover
 
 /* =Footer */
 .footer-container {
-    text-align: center;
-    font-size: 14px;
-    color: #000;
-    background-color: #06060d; 
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+  background-color: #06060d; 
 }
 
 .footer-container .wrapper {
-    width: 80%;
-    max-width: none;
-    margin: 0 10%; 
+  width: 80%;
+  max-width: none;
+  margin: 0 10%; 
 }
 
 .footer-container h3 {
-    margin: 0;
-    padding: 20px 0;
-    font-weight: normal; 
-    color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  padding: 20px 0;
+  font-weight: normal; 
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .footer-container a {
-    color: rgba(255, 255, 255, 0.5); 
+  color: rgba(255, 255, 255, 0.5); 
 }
 
 
@@ -211,61 +222,61 @@ a.info:hover
    ========================================================================== */
 
 .ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    *text-indent: -9999px;
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
 }
 
 .ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%;
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
 }
 
 .hidden {
-    display: none !important;
-    visibility: hidden;
+  display: none !important;
+  visibility: hidden;
 }
 
 .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
 
 .invisible {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .clearfix:before,
 .clearfix:after {
-    content: " ";
-    display: table;
+  content: " ";
+  display: table;
 }
 
 .clearfix:after {
-    clear: both;
+  clear: both;
 }
 
 .clearfix {
-    *zoom: 1;
+  *zoom: 1;
 }
 
 /* ==========================================================================
@@ -273,64 +284,64 @@ a.info:hover
    ========================================================================== */
 
 @media print {
-    * {
-        background: transparent !important;
-        color: #000 !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
 
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
 
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
 
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
 
-    .ir a:after,
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-        content: "";
-    }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
 
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
 
-    thead {
-        display: table-header-group;
-    }
+  thead {
+    display: table-header-group;
+  }
 
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
 
-    img {
-        max-width: 100% !important;
-    }
+  img {
+    max-width: 100% !important;
+  }
 
-    @page {
-        margin: 0.5cm;
-    }
+  @page {
+    margin: 0.5cm;
+  }
 
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
 
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }

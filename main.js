@@ -13,7 +13,7 @@ $(document).ready(function(){
 
   var ourScene1 = new ScrollMagic.Scene({
     triggerElement: '#project00',
-    duration: '76%'
+    duration: '77%'
   })
   .setClassToggle('#project00','fade-in')
   .addIndicators({})
