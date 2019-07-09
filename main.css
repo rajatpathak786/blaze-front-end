@@ -6,9 +6,8 @@
   overflow: hidden;
   background-size: cover;
   background-position: center center;
-  z-index: 1;
+  z-index: 10;
 }
-
 
 html,
 button,
@@ -75,19 +74,16 @@ body {
     margin: 0 5%;
 }
 
- a.info{
+a.info{
   color: #2da1c1;
   position: absolute;
   left:15%;
- }
+}
 
- a.info:hover
+a.info:hover
  {
  color: #f90;
- text-decoration: underline;
-
- }
-
+}
 
 #intro {
     height: 100vh;
@@ -95,47 +91,67 @@ body {
     text-align: center;
     color: #fff;
 }
+
 #intro .content {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-250%, -65%);  
+    transform: translate(-250%, -65%);
+    opacity: 0;
+    transition: all 0.5s ease-out;  
 }
+
+#intro .content.fade-in {
+    opacity: 1;
+}
+
 #link {
     color: #fff;
 }
+
+#main {
+    background: #060606;
+}
+
+#section {
+    position: absolute;
+}
+
 .project {
     text-align: left;
-    padding: 200px ;
+    padding: 200px;
     background: #060606;
     border-bottom: 10% #ebebeb solid;
     opacity: 0;
     transition: all 0.5s ease-out;
 }
+
 .project.fade-in {
   opacity: 1;
 }
-.project img {
-    width: 180px;
-    height: 180px;
-}
+
 .project p {
     max-width: 300px;
     margin: 0 auto;
     color: #294D67;
 }
+
 #project01 h2 {
     color: #3DB3CE;
 }
+
 #project02 h2 {
     color: #75C695;
 }
+
 #project03 h2 {
     color: #F5876F;
 }
+
 .page {
   display: none;
 }
+
 /* =Footer */
 .footer-container {
     text-align: center;
@@ -143,16 +159,20 @@ body {
     color: #000;
     background-color: #06060d; 
 }
+
 .footer-container .wrapper {
     width: 80%;
     max-width: none;
     margin: 0 10%; 
 }
+
 .footer-container h3 {
     margin: 0;
     padding: 20px 0;
     font-weight: normal; 
+    color: rgba(255, 255, 255, 0.5);
 }
+
 .footer-container a {
     color: rgba(255, 255, 255, 0.5); 
 }
