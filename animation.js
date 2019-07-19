@@ -1,7 +1,11 @@
-var endpoint = 750;
+var x = window.innerWidth;
+var y = window.innerHeight;
+var endpoint = 0.8*y;
+var aspectRatio = window.innerWidth/window.innerHeight;
 var scroll = window.scrollY;  
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 90, document.documentElement.scrollWidth/document.documentElement.scrollHeight, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera( 90, aspectRatio, 0.1, 1000 );
+camera.lookAt(0,0,0);
 camera.position.z = 800;
 var l1endpointx = 0.5*x, l1endpointy = 0.7*y;;
 var l2endpointx = 0.25*x, l2endpointy = 0.665*y;
@@ -34,24 +38,18 @@ function imageBlaze() {
 imageBlaze();
 
 function update() {
-  console.log(scene, "palagus");
   geometry = new THREE.Geometry();
-  console.log(endpoint , "endpoint", scroll);
   material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 10 });
-  geometry.vertices.push(new THREE.Vector3(500, 800, 0)); //x, y, z//500
-  geometry.vertices.push(new THREE.Vector3(500, endpoint, 0));
+  geometry.vertices.push(new THREE.Vector3(x/2, y, 0)); //x, y, z//500
+  geometry.vertices.push(new THREE.Vector3(x/2 , endpoint, 0));
   line = new THREE.Line(geometry, material);
   line.geometry.verticesNeedUpdate = true;
   scene.add(line);
 }
 
-console.log(window.scrollY);
-
 update();
 
 function latus1() {
-  console.log(scene, "latus1");
-  console.log('latus1', l1endpointx, l1endpointy);
   geometry = new THREE.Geometry();
   material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(0.5*x, 0.7*y, 0)); //x, y, z
@@ -64,8 +62,6 @@ function latus1() {
 latus1();
 
 function latus2() {
-  console.log(scene, "latus2");
-  console.log('latus2', l2endpointx, l2endpointy);
   geometry = new THREE.Geometry();
   material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(0.25*x, 0.665*y, 0)); //x, y, z
@@ -78,8 +74,6 @@ function latus2() {
  latus2();
 
  function latus3() {
-  console.log(scene, "latus3");
-  console.log('latus3', l3endpointx, l3endpointy);
   geometry = new THREE.Geometry();
   material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(0.25*x, 0.55*y, 0)); //x, y, z
@@ -92,8 +86,6 @@ function latus2() {
 latus3();
 
 function latus4() {
-  console.log(scene, "latus4");
-  console.log('latus4', l4endpointx, l4endpointy);
   geometry = new THREE.Geometry();
   material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.05*x, 0.35*y, 0)); //x, y, z
@@ -106,8 +98,6 @@ function latus4() {
 latus4();
 
 function latus5() {
-  console.log(scene, "latus5");
-  console.log('latus5', l5endpointx, l5endpointy);
   geometry = new THREE.Geometry();
   material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.05*x, 0.35*y, 0)); //x, y, z
@@ -120,8 +110,6 @@ function latus5() {
 latus5();
 
 function latus6() {
-  console.log(scene, "latus6");
-  console.log('latus6', l6endpointx, l6endpointy);
   geometry = new THREE.Geometry();
   material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.05*x, 0.35*y, 0)); //x, y, z
@@ -134,8 +122,6 @@ function latus6() {
 latus6();
 
 function latus7() {
-  console.log(scene, "latus7");
-  console.log('latus7', l7endpointx, l7endpointy);
   geometry = new THREE.Geometry();
   material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(0.15*x, 0.1*y, 0)); //x, y, z
@@ -202,43 +188,46 @@ function latus1scrolldown() {
       l1endpointy = 0.6*y;
       console.log(scroll, "LATUS 1 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
     } else {
-      l1endpointx = l1endpointx - 10;
-      l1endpointy = l1endpointy - 10;
+      l1endpointx = l1endpointx - 0.098*x/2;
+      l1endpointy = l1endpointy - 0.014*y/2;
     }
-    latus2scrolldown();
+    if (l1endpointx < 0.25*x) {
+      latus2scrolldown();
+    }
     scene.remove(line1);
     latus1();
-  }
- }
+}
+}
 
- function latus1scrollup() {
-  if (l1endpointx >= 500 || l1endpointy >= 500) {
-    l1endpointx = 500;
-    l1endpointy = 500;
+function latus1scrollup() {
+  if (l1endpointx >= 0.5*x || l1endpointy >= 0.7*y) {
+    l1endpointx = 0.5*x;
+    l1endpointy = 0.7*y;
   } else {
     l1endpointx = l1endpointx + 0.098*x/8;
     l1endpointy = l1endpointy + 0.014*y/8;
   }
   scene.remove(line1);
   latus1();
- }
+}
 
- function latus2scrolldown() {
-  if (l1endpointy <= 400) {
-    if (l2endpointy <= 200) {
-      l2endpointy = 200;  
+function latus2scrolldown() {
+  if (l1endpointy <= 0.665*y) {
+    if (l2endpointy <= 0.55*y) {
+      console.log(scroll, "LATUS 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+      l2endpointy = 0.55*y;
+      latus3scrolldown();  
     } else {
-      l2endpointy = l2endpointy - 10;
+      l2endpointy = l2endpointy - 0.0075*y;
     }
-    latus3scrolldown();
     scene.remove(line2);
     latus2();
   }
- }
+}
 
- function latus2scrollup() {
-  if (l2endpointy >= 400) {
-    l2endpointy = 400;
+function latus2scrollup() {
+  if (l2endpointy >= 0.665*y) {
+    l2endpointy = 0.665*y;
     latus1scrollup();
     scene.remove(line2);
     latus2();  
@@ -247,24 +236,25 @@ function latus1scrolldown() {
     scene.remove(line2);
     latus2();
   }
- }
+}
 
- function latus3scrolldown() {
-  if (l2endpointy <= 200) {
-    if (l3endpointx <= 200 || l3endpointy <= -100) {
-      l3endpointx = 200;
-      l3endpointy = -100;  
+function latus3scrolldown() {
+  if (l2endpointy <= 0.55*y) {
+    if (l3endpointx <= -0.05*x || l3endpointy <= 0.35*y) {
+      l3endpointx = -0.05*x;
+      l3endpointy = 0.35*y;
+      console.log(scroll, "L3 points *************************************************************************");
+      latus4scrolldown();
+      latus5scrolldown();
+      latus6scrolldown();  
     } else {
-      l3endpointx = l3endpointx - 10;
-      l3endpointy = l3endpointy - 15;
+      l3endpointx = l3endpointx - 0.006*x;
+      l3endpointy = l3endpointy - 0.004*y;
     }
-    latus4scrolldown();
-    latus5scrolldown();
-    latus6scrolldown();
     scene.remove(line3);
     latus3();
   }
- }
+}
 
 function latus3scrollup() {
   if (l3endpointx <= 0.25*x || l3endpointy <= 0.55*y) {
@@ -284,21 +274,22 @@ function latus3scrollup() {
       }
     }
   } else {
-    l3endpointx = l3endpointx + 10;
-    l3endpointy = l3endpointy + 15
+    l3endpointx = 0.25*x;
+    l3endpointy = 0.55*y;
     scene.remove(line3);
     latus3();
-  }
- }
+    latus2scrollup();
+  } 
+}
 
- function latus4scrolldown() {
-  if (l3endpointx <= 200 || l3endpointy <= -100) {
-    if (l4endpointx <= -400 || l4endpointy <= -300) {
-      l4endpointx = -400;
-      l4endpointy = -300;  
+function latus4scrolldown() {
+  if (l3endpointx <= -0.05*x || l3endpointy <= 0.35*y) {
+    if (l4endpointx <= -0.4*x || l4endpointy <= 0.2*y) {
+      l4endpointx = -0.4*x;
+      l4endpointy = 0.2*y;  
     } else {
-      l4endpointx = l4endpointx - 30;
-      l4endpointy = l4endpointy - 10;
+      l4endpointx = l4endpointx - 0.007*x;
+      l4endpointy = l4endpointy - 0.003*y;
     }
     scene.remove(line4);
     latus4();
@@ -330,16 +321,17 @@ function latus4scrollup() {
   }
 }
 
- function latus5scrolldown() {
-  if (l3endpointx <= 200 || l3endpointy <= -100) {
-    if (l5endpointx <= -100 || l5endpointy <= -400) {
-      l5endpointx = -100;
-      l5endpointy = -400;  
+function latus5scrolldown() {
+  if (l3endpointx <= -0.05*x || l3endpointy <= 0.35*y) {
+    if (l5endpointx >= 0.15*x || l5endpointy <= 0.1*y) {
+      l5endpointx = 0.15*x;
+      l5endpointy = 0.1*y;  
+      console.log(scroll, 'L5 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
+      latus7scrolldown();
     } else {
-      l5endpointx = l5endpointx - 10;
-      l5endpointy = l5endpointy - 10;
+      l5endpointx = l5endpointx + 0.004*x;
+      l5endpointy = l5endpointy - 0.005*y;
     }
-    latus7scrolldown();
     scene.remove(line5);
     latus5();
   }
@@ -370,14 +362,14 @@ function latus5scrollup() {
   }
 }
 
- function latus6scrolldown() {
-  if (l3endpointx <= 200 || l3endpointy <= -100) {
-    if (l6endpointx <= 300 || l6endpointy <= -300) {
-      l6endpointx = 300;
-      l6endpointy = -300;  
+function latus6scrolldown() {
+  if (l3endpointx >= -0.05*x || l3endpointy <= 0.35*y) {
+    if (l6endpointx >= 0.3*x || l6endpointy <= 0.25*y) {
+      l6endpointx = 0.3*x;
+      l6endpointy = 0.25*y;  
     } else {
-      l6endpointx = l6endpointx + 5;
-      l6endpointy = l6endpointy - 10;
+      l6endpointx = l6endpointx + 0.0035*1.5*x;
+      l6endpointy = l6endpointy - 0.001*1.5*y;
     }
     scene.remove(line6);
     latus6();
@@ -410,13 +402,13 @@ function latus7scrolldown() {
       latus10scrolldown();
       latus11scrolldown();
     } else {
-      l7endpointx = l7endpointx - 10;
-      l7endpointy = l7endpointy - 30;
+      l7endpointx = l7endpointx - 0.007*x;
+      l7endpointy = l7endpointy - 0.004*y;
     }
     scene.remove(line7);
     latus7();
   }
- }
+}
 
 function latus7scrollup() {
   if (l7endpointx <= 0.15*x || l7endpointy <= 0.1*y) {
@@ -870,17 +862,29 @@ function scrolldown() {
     console.log(endpoint);
   } 
   latus1scrolldown();
-  console.log(endpoint);
   scene.remove(line)
   update();
 }
 
 function scrollup() {
-  endpoint = endpoint + scroll/10;
-  latus3scrollup();
+  // console.count('up');
+  updateDrawUp()
+  if ((l2endpointy < 0.665*y && endpoint < 0.665*y) || (l3endpointy < 0.55*y && endpoint < 0.55*y) || (l5endpointy < 0.35*y && endpoint < 0.35*y) || (l7endpointy < 0.1*y && endpoint < 0.1*y) || (l9endpointy < -0.1*y && endpoint < -0.1*y) || (l1endpointx == 0.5*x)) {
+    endpoint = endpoint + 0.008 *y;
+  }
+  latus11scrollup();
+  latus10scrollup();
+  latus9scrollup();
+  latus8scrollup();
   scene.remove(line)
   update();
 }
+
+window.addEventListener('resize', function() {
+  // location.reload();
+  camera.aspect = window.innerWidth / window.innerHeight;
+  renderer.setSize( window.innerWidth, document.documentElement.scrollHeight );
+});
 
 window.addEventListener('scroll', function() {
   if (scroll < window.scrollY) {
@@ -889,9 +893,32 @@ window.addEventListener('scroll', function() {
   } else if (scroll > window.scrollY) {
     scroll = window.scrollY;
     if (scroll == 0) {
-      endpoint = 750;
+      endpoint = 0.8*y;
       scene.remove(line)
       update();
+      l1endpointx = 0.5*x, l1endpointy = 0.7*y, l2endpointx = 0.25*x, l2endpointy = 0.665*y, l3endpointx = 0.25*x, l3endpointy = 0.55*y, l4endpointx = -0.05*x, l4endpointy = 0.35*y, l5endpointx = -0.05*x, l5endpointy = 0.35*y, l6endpointx = -0.05*x, l6endpointy = 0.35*y, l7endpointx = 0.15*x, l7endpointy = 0.1*y, l8endpointx = -0.2*x, l8endpointy = -0.1*y, l9endpointx = -0.2*x, l9endpointy = -0.1*y, l10endpointx = -0.2*x, l10endpointy = -0.1*y, l11endpointx = -0.2*x, l11endpointy = -0.1*y;
+      scene.remove(line1);
+      scene.remove(line2);
+      scene.remove(line3);
+      scene.remove(line4);
+      scene.remove(line5);
+      scene.remove(line6);
+      scene.remove(line7);
+      scene.remove(line8);
+      scene.remove(line9);
+      scene.remove(line10);
+      scene.remove(line11);
+      latus1();
+      latus2();
+      latus3();
+      latus4();
+      latus5();
+      latus6();
+      latus7();
+      latus8();
+      latus9();
+      latus10();
+      latus11();
     } else {
       scrollup()
     }
@@ -899,6 +926,7 @@ window.addEventListener('scroll', function() {
 });
 
 var animate = function() {
+  console.log(scroll, "initial scroll", endpoint);
   requestAnimationFrame( animate );
 	renderer.render(scene, camera);
 };
@@ -907,10 +935,17 @@ animate();
 
 
 
+// // function imageBlaze() {
+// //   THREE.ImageUtils.crossOrigin = '';
+// //   image = new THREE.TextureLoader();
+// //   material = new THREE.MeshLambertMaterial({
+// //     map: image.load('https://blazeprotocol.io/wp-content/themes/blaze-new/images/logo-white.png')
+// //   });
+// //   geometry = new THREE.PlaneGeometry(262, 80);
+// //   blazeIcon = new THREE.Mesh(geometry, material);
+// //   blazeIcon.position.set(0.025*x, 0.7*y);
+// //   console.log(blazeIcon);
+// //   scene.add(blazeIcon);
+// // }
 
-
-
-
-
-
-
+// // imageBlaze();
