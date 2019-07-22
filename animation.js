@@ -18,6 +18,7 @@ let l8endpointx = -0.2 * x, l8endpointy = -0.1 * y;
 let l9endpointx = -0.2 * x, l9endpointy = -0.1 * y;
 let l10endpointx = -0.2 * x, l10endpointy = -0.1 * y;
 let l11endpointx = -0.2 * x, l11endpointy = -0.1 * y;
+let node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12;
 let renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.domElement.id = "canvasID";
 renderer.setSize(window.innerWidth, document.documentElement.scrollHeight);
@@ -28,22 +29,32 @@ document.getElementById("myScene").appendChild(renderer.domElement);
 // var light = new THREE.AmbientLight( 0xffffff ); 
 // scene.add( light );
 
-// var svgNS = "http://www.w3.org/2000/svg";
-// function createCircle(x, y, color) {
-//   console.log("x===========================", x)
-//   console.log("y===========================", y)
-//   var myCircle = document.createElementNS(svgNS, "circle"); //to create a circle. for rectangle use "rectangle"
-//   myCircle.setAttributeNS(null, "id", "mycircle");
-//   myCircle.setAttributeNS(null, "cx", x);
-//   myCircle.setAttributeNS(null, "cy", y);
-//   myCircle.setAttributeNS(null, "r", 20);
-//   myCircle.setAttributeNS(null, "fill", color);
-//   myCircle.setAttributeNS(null, "stroke", "black");
+var svgNS = "http://www.w3.org/2000/svg";
+function createCircle(x, y, color, id) {
+  //console.log(x, y, color, id);
+  var myCircle = document.createElementNS(svgNS, "circle"); //to create a circle. for rectangle use "rectangle"
+  myCircle.setAttributeNS(null, "id", id);
+  myCircle.setAttributeNS(null, "cx", x);
+  myCircle.setAttributeNS(null, "cy", y);
+  myCircle.setAttributeNS(null, "r", 20);
+  myCircle.setAttributeNS(null, "fill", color);
+  myCircle.setAttributeNS(null, "stroke", "black");
+  document.getElementById("mySVG").appendChild(myCircle);
+  //console.log(myCircle);
+}
 
-//   document.getElementById("mySVG").appendChild(myCircle);
-// }
-
-// createCircle(810, 350, 'red')
+// createCircle(0.652*x, 0.28*y, 'red', 'node2_mid');
+// createCircle(0.375*x, 0.40*y, 'red')
+// createCircle(0.4699*x, 0.854*y, 'red', 'node4');
+// createCircle(0.678*x, 1.044*y, 'red', 'node7')
+// createCircle(0.588*x, 1.324*y, 'red', 'node6');
+// createCircle(0.25*x, 1.139*y, 'red')
+// createCircle(0.3806*x, 1.6906*y, 'red', 'node8')
+// createCircle(0.185*x, 1.89*y, 'red', 'node9');
+// createCircle(0.715*x, 1.84*y, 'red', 'node12')
+// createCircle(0.652*x, 2.152 *y, 'red', 'node11');
+// createCircle(0.346*x, 2.252 *y, 'red', 'node10');
+// createCircle(0.652*x, 0.28*y, 'black')
 
 function update() {
   geometry = new THREE.Geometry();
@@ -194,13 +205,20 @@ function latus1scrolldown() {
     if (l1endpointx <= -0.2 * x || l1endpointy <= 0.6 * y) {
       l1endpointx = -0.2 * x;
       l1endpointy = 0.6 * y;
-      console.log(scroll, "LATUS 1 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
+      if (!node2) {
+        createCircle(0.375*x, 0.4*y, 'red', 'node2');
+        node2 = true;
+      }
+      //console.log(scroll, "LATUS 1 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
     } else {
-      l1endpointx = l1endpointx - 0.098 * x / 2;
-      l1endpointy = l1endpointy - 0.014 * y / 2;
+      l1endpointx = l1endpointx - 0.098 * x / 4;
+      l1endpointy = l1endpointy - 0.014 * y / 4;
     }
     if (l1endpointx < 0.25 * x) {
-      // image();
+      if (!node1) {
+        createCircle(0.652*x, 0.28*y, 'red', 'node1');
+        node1 = true;
+      }
       latus2scrolldown();
     }
     scene.remove(line1);
@@ -215,6 +233,16 @@ function latus1scrollup() {
   } else {
     l1endpointx = l1endpointx + 0.098 * x / 8;
     l1endpointy = l1endpointy + 0.014 * y / 8;
+    if (node2) {
+      document.getElementById('node2').remove();
+      node2 = false;
+    }
+  }
+  if (l1endpointx >= 0.25*x || l1endpointy >= 0.665*y) {
+    if (node1) {
+      document.getElementById('node1').remove();
+      node1 = false;
+    }
   }
   scene.remove(line1);
   latus1();
@@ -223,8 +251,12 @@ function latus1scrollup() {
 function latus2scrolldown() {
   if (l1endpointy <= 0.665 * y) {
     if (l2endpointy <= 0.55 * y) {
-      console.log(scroll, "LATUS 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+      //console.log(scroll, "LATUS 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
       l2endpointy = 0.55 * y;
+      if (!node3) {
+        createCircle(0.652*x, 0.5*y, 'red', 'node3');
+        node3 = true;
+      }
       latus3scrolldown();
     } else {
       l2endpointy = l2endpointy - 0.0075 * y;
@@ -244,6 +276,10 @@ function latus2scrollup() {
     l2endpointy = l2endpointy + 0.0075 * y / 4;
     scene.remove(line2);
     latus2();
+    if (node3) {
+      document.getElementById('node3').remove();
+      node3 = false;
+    }
   }
 }
 
@@ -252,7 +288,11 @@ function latus3scrolldown() {
     if (l3endpointx <= -0.05 * x || l3endpointy <= 0.35 * y) {
       l3endpointx = -0.05 * x;
       l3endpointy = 0.35 * y;
-      console.log(scroll, "L3 points *************************************************************************");
+      if (!node4) {
+        createCircle(0.4699*x, 0.854*y, 'red', 'node4');
+        node4 = true;
+      }
+      //console.log(scroll, "L3 points *************************************************************************");
       latus4scrolldown();
       latus5scrolldown();
       latus6scrolldown();
@@ -267,7 +307,7 @@ function latus3scrolldown() {
 
 function latus3scrollup() {
   if (l3endpointx <= 0.25 * x || l3endpointy <= 0.55 * y) {
-    // console.log(l4endpointx, l5endpointx, l6endpointx, l4endpointy, l5endpointy, l6endpointy)
+    // //console.log(l4endpointx, l5endpointx, l6endpointx, l4endpointy, l5endpointy, l6endpointy)
     if ((l4endpointx == -0.05 * x) && (l4endpointy == 0.35 * y) && (l5endpointx == -0.05 * x) && (l5endpointy == 0.35 * y) && (l6endpointx == -0.05 * x) && (l6endpointy == 0.35 * y)) {
       if (l3endpointx >= 0.25 * x || l3endpointy >= 0.55 * y) {
         l3endpointx = 0.25 * x;
@@ -280,6 +320,10 @@ function latus3scrollup() {
         l3endpointy = l3endpointy + 0.004 * y / 4;
         scene.remove(line3);
         latus3();
+        if (node4) {
+          document.getElementById('node4').remove();
+          node4 = false;  
+        }
       }
     }
   } else {
@@ -296,6 +340,10 @@ function latus4scrolldown() {
     if (l4endpointx <= -0.4 * x || l4endpointy <= 0.2 * y) {
       l4endpointx = -0.4 * x;
       l4endpointy = 0.2 * y;
+      if (!node5) {
+        createCircle(0.25*x, 1.139*y, 'red', 'node5');
+        node5 = true;
+      }
     } else {
       l4endpointx = l4endpointx - 0.007 * x;
       l4endpointy = l4endpointy - 0.003 * y;
@@ -319,6 +367,10 @@ function latus4scrollup() {
       l4endpointy = l4endpointy + 0.003 * y / 4;
       scene.remove(line4);
       latus4();
+      if (node5) {
+        document.getElementById('node5').remove();
+        node5 = false;
+      }
     }
     // }
   } else {
@@ -335,7 +387,11 @@ function latus5scrolldown() {
     if (l5endpointx >= 0.15 * x || l5endpointy <= 0.1 * y) {
       l5endpointx = 0.15 * x;
       l5endpointy = 0.1 * y;
-      console.log(scroll, 'L5 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
+      if (!node6) {
+        createCircle(0.588*x, 1.324*y, 'red', 'node6');
+        node6 = true;
+      }
+      //console.log(scroll, 'L5 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
       latus7scrolldown();
     } else {
       l5endpointx = l5endpointx + 0.004 * x;
@@ -360,6 +416,10 @@ function latus5scrollup() {
       l5endpointy = l5endpointy + 0.005 * y / 4;
       scene.remove(line5);
       latus5();
+      if (node6) {
+        document.getElementById('node6').remove();
+        node6 = false;
+      }
     }
     // }
   } else {
@@ -376,6 +436,10 @@ function latus6scrolldown() {
     if (l6endpointx >= 0.3 * x || l6endpointy <= 0.25 * y) {
       l6endpointx = 0.3 * x;
       l6endpointy = 0.25 * y;
+      if (!node7) {
+        createCircle(0.678*x, 1.044*y, 'red', 'node7');
+        node7 = true;
+      }
     } else {
       l6endpointx = l6endpointx + 0.0035 * 1.5 * x;
       l6endpointy = l6endpointy - 0.001 * 1.5 * y;
@@ -397,15 +461,23 @@ function latus6scrollup() {
     l6endpointy = l6endpointy + 0.001 * 1.5 * y / 4;
     scene.remove(line6);
     latus6();
+    if (node7) {
+      document.getElementById('node7').remove();
+      node7 = false;
+    }
   }
 }
 
 function latus7scrolldown() {
   if (l5endpointx <= 0.15 * x || l5endpointy <= 0.1 * y) {
     if (l7endpointx <= -0.2 * x || l7endpointy <= -0.1 * y) {
-      console.log(scroll, "L7 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+      //console.log(scroll, "L7 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
       l7endpointx = -0.2 * x;
       l7endpointy = -0.1 * y;
+      if (!node8) {
+        createCircle(0.3806*x, 1.6906*y, 'red', 'node8');
+        node8 = true;
+      }                                
       latus8scrolldown();
       latus9scrolldown();
       latus10scrolldown();
@@ -435,6 +507,10 @@ function latus7scrollup() {
         l7endpointy = l7endpointy + 0.004 * y / 4;
         scene.remove(line7);
         latus7();
+        if (node8) {
+          document.getElementById('node8').remove();
+          node8 = false;
+        }
       }
     }
   } else {
@@ -453,6 +529,10 @@ function latus8scrolldown() {
     if (l8endpointx <= -0.5 * x || l8endpointy <= -0.2 * y) {
       l8endpointx = -0.5 * x;
       l8endpointy = -0.2 * y;
+      if (!node9) {
+        createCircle(0.185*x, 1.89*y, 'red', 'node9');
+        node9 = true;
+      }
     } else {
       l8endpointx = l8endpointx - 0.012 * x;
       l8endpointy = l8endpointy - 0.004 * y;
@@ -475,6 +555,10 @@ function latus8scrollup() {
       l8endpointy = l8endpointy + 0.004 * y / 2;
       scene.remove(line8);
       latus8();
+      if (node9) {
+        document.getElementById('node9').remove();
+        node9 = false;
+      }
     }
   } else {
     l8endpointx = -0.2 * x;
@@ -488,9 +572,13 @@ function latus8scrollup() {
 function latus9scrolldown() {
   if (l7endpointx <= -0.2 * x || l7endpointy <= -0.1 * y) {
     if (l9endpointx <= -0.25 * x || l9endpointy <= -0.4 * y) {
-      console.log(scroll, "L9 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+      //console.log(scroll, "L9 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
       l9endpointx = -0.25 * x;
       l9endpointy = -0.4 * y;
+      if (!node10) {
+        createCircle(0.346*x, 2.252 *y, 'red', 'node10');
+        node10 = true;
+      }
     } else {
       l9endpointx = l9endpointx - 0.002 * x;
       l9endpointy = l9endpointy - 0.012 * y;
@@ -513,6 +601,10 @@ function latus9scrollup() {
       l9endpointy = l9endpointy + 0.012 * y;
       scene.remove(line9);
       latus9();
+      if (node10) {
+        document.getElementById('node10').remove();
+        node10 = false;
+      }
     }
   } else {
     l9endpointx = -0.2 * x / 4;
@@ -528,6 +620,10 @@ function latus10scrolldown() {
     if (l10endpointx >= 0.25 * x || l10endpointy <= -0.35 * y) {
       l10endpointx = 0.25 * x;
       l10endpointy = -0.35 * y;
+      if (!node11) {
+        createCircle(0.652*x, 2.152 *y, 'red', 'node11');
+        node11 = true;
+      }
     } else {
       l10endpointx = l10endpointx + 0.009 * x;
       l10endpointy = l10endpointy - 0.005 * y;
@@ -550,6 +646,10 @@ function latus10scrollup() {
       l10endpointy = l10endpointy + 0.005 * y;
       scene.remove(line10);
       latus10();
+      if (node11) {
+        document.getElementById('node11').remove();
+        node11 = false;
+      }
     }
   } else {
     l10endpointx = -0.2 * x / 4;
@@ -565,6 +665,10 @@ function latus11scrolldown() {
     if (l11endpointx >= 0.35 * x || l11endpointy <= -0.18 * y) {
       l11endpointx = 0.35 * x;
       l11endpointy = -0.18 * y;
+      if (!node12) {
+        createCircle(0.715*x, 1.84*y, 'red', 'node12');
+        node12 = true;
+      }
     } else {
       l11endpointx = l11endpointx + 0.0275 * x;
       l11endpointy = l11endpointy - 0.004 * y;
@@ -587,6 +691,10 @@ function latus11scrollup() {
       l11endpointy = l11endpointy + 0.004 * y / 2;
       scene.remove(line11);
       latus11();
+      if (node12) {
+        document.getElementById('node12').remove();
+        node12 = false;
+      }
     }
   } else {
     l11endpointx = -0.2 * x;
@@ -603,6 +711,10 @@ function updateDrawDown() {
     l1endpointy = 0.6 * y;
     scene.remove(line1);
     latus1();
+    if (!node2) {
+      createCircle(0.375*x, 0.4*y, 'red', 'node2');
+      node2 = true;
+    }
     if (endpoint > 0.6 * y) {
       endpoint = 0.6 * y;
       scene.remove(line);
@@ -614,6 +726,10 @@ function updateDrawDown() {
     l2endpointy = 0.55 * y;
     scene.remove(line2);
     latus2();
+    if (!node3) {
+      createCircle(0.652*x, 0.5*y, 'red', 'node3');
+      node3 = true;
+    }
     if (endpoint > 0.55 * y) {
       endpoint = 0.55 * y;
       scene.remove(line);
@@ -638,6 +754,10 @@ function updateDrawDown() {
     l3endpointy = 0.35 * y;
     scene.remove(line3);
     latus3();
+    if (!node4) {
+      createCircle(0.4699*x, 0.854*y, 'red', 'node4');
+      node4 = true;
+    }
     if (endpoint > 0.35 * y) {
       endpoint = 0.35 * y;
       scene.remove(line);
@@ -677,6 +797,18 @@ function updateDrawDown() {
     latus4();
     latus5();
     latus6();
+    if (!node5) {
+      createCircle(0.25*x, 1.139*y, 'red', 'node5');
+      node5 = true;
+    }
+    if (!node6) {
+      createCircle(0.588*x, 1.324*y, 'red', 'node6');
+      node6 = true;
+    }
+    if (!node7) {
+      createCircle(0.678*x, 1.044*y, 'red', 'node7');
+      node7 = true;
+    }
     if (endpoint > 0.1 * y) {
       endpoint = 0.1 * y;
       scene.remove(line);
@@ -699,6 +831,10 @@ function updateDrawDown() {
     l7endpointx = -0.2 * x, l7endpointy = -0.1 * y;
     scene.remove(line7);
     latus7();
+    if (!node8) {
+      createCircle(0.3806*x, 1.6906*y, 'red', 'node8');
+      node8 = true;
+    }
     if (endpoint > -0.1 * y) {
       endpoint = -0.1 * y;
       scene.remove(line);
@@ -742,6 +878,22 @@ function updateDrawDown() {
     latus9();
     latus10();
     latus11();
+    if (!node9) {
+      createCircle(0.185*x, 1.89*y, 'red', 'node9');
+      node9 = true;
+    }
+    if (!node10) {
+      createCircle(0.346*x, 2.252 *y, 'red', 'node10');
+      node10 = true;
+    }
+    if (!node11) {
+      createCircle(0.652*x, 2.152 *y, 'red', 'node11');
+      node11 = true;
+    }
+    if (!node12) {
+      createCircle(0.715*x, 1.84*y, 'red', 'node12');
+      node12 = true;
+    }
     if (endpoint > -0.4 * y) {
       endpoint = -0.6 * y;
       scene.remove(line);
@@ -752,6 +904,14 @@ function updateDrawDown() {
 
 function updateDrawUp() {
   if (scroll < 100) {
+    if (node3) {
+      document.getElementById('node3').remove();
+      node3 = false;
+    }
+    if (node2) {
+      document.getElementById('node2').remove();
+      node2 = false;
+    }
     l1endpointx = 0.5 * x, l1endpointy = 0.7 * y, l2endpointx = 0.25 * x, l2endpointy = 0.665 * y;
     scene.remove(line1);
     scene.remove(line2);
@@ -775,6 +935,10 @@ function updateDrawUp() {
     }
   }
   if (scroll < 225) {
+    if (node4) {
+      document.getElementById('node4').remove();
+      node4 = false;  
+    }
     if (l3endpointx < 0.1 * x && l3endpointy < 0.45 * y) {
       l3endpointx = 0.1 * x;
       l3endpointy = 0.45 * y;
@@ -802,6 +966,18 @@ function updateDrawUp() {
     }
   }
   if (scroll < 380) {
+    if (node5) {
+      document.getElementById('node5').remove();
+      node5 = false;
+    }
+    if (node6) {
+      document.getElementById('node6').remove();
+      node6 = false;
+    }
+    if (node7) {
+      document.getElementById('node7').remove();
+      node7 = false;
+    }
     if (l4endpointx < -0.225 * x && l4endpointy < 0.275 * y) {
       l4endpointx = -0.225 * x;
       l4endpointy = 0.275 * y;
@@ -837,6 +1013,10 @@ function updateDrawUp() {
     }
   }
   if (scroll < 700) {
+    if (node8) {
+      document.getElementById('node8').remove();
+      node8 = false;
+    }
     if (l7endpointx < -0.025 * x && l7endpointy < 0) {
       l7endpointx = -0.025 * x;
       l7endpointy = 0;
@@ -855,6 +1035,22 @@ function updateDrawUp() {
     scene.remove(line9);
     scene.remove(line10);
     scene.remove(line11);
+    if (node9) {
+      document.getElementById('node9').remove();
+      node9 = false;
+    }
+    if (node10) {
+      document.getElementById('node10').remove();
+      node10 = false;
+    }
+    if (node11) {
+      document.getElementById('node11').remove();
+      node11 = false;
+    }
+    if (node12) {
+      document.getElementById('node12').remove();
+      node12 = false;
+    }
     if (endpoint < -0.1 * y) {
       endpoint = -0.1 * y;
       scene.remove(line);
@@ -864,11 +1060,11 @@ function updateDrawUp() {
 }
 
 function scrolldown() {
-  // console.count('down');
+  // //console.count('down');
   updateDrawDown();
   if ((l2endpointy > 0.6 * y && endpoint > 0.6 * y) || (l3endpointx < 0.25 * x && endpoint > 0.35 * y) || (l5endpointx > -0.05 * x && endpoint > 0.1 * y) || (l7endpointx < 0.15 * x && endpoint > -0.1 * y) || (l9endpointy < -0.1 * y && endpoint > -0.6 * y)) {
     endpoint = endpoint - 0.008 * y;
-    console.log(endpoint);
+    //console.log(endpoint);
   }
   latus1scrolldown();
   scene.remove(line)
@@ -876,7 +1072,7 @@ function scrolldown() {
 }
 
 function scrollup() {
-  // console.count('up');
+  // //console.count('up');
   updateDrawUp()
   if ((l2endpointy < 0.665 * y && endpoint < 0.665 * y) || (l3endpointy < 0.55 * y && endpoint < 0.55 * y) || (l5endpointy < 0.35 * y && endpoint < 0.35 * y) || (l7endpointy < 0.1 * y && endpoint < 0.1 * y) || (l9endpointy < -0.1 * y && endpoint < -0.1 * y) || (l1endpointx == 0.5 * x)) {
     endpoint = endpoint + 0.008 * y;
@@ -934,9 +1130,63 @@ window.addEventListener('scroll', function () {
   }
 });
 
+function initialNode() {
+  if (node1) {
+    document.getElementById('node1').remove();
+    node1 = false;
+  }
+  if (node2) {
+    document.getElementById('node2').remove();
+    node2 = false;
+  }
+  if (node3) {
+    document.getElementById('node3').remove();
+    node3 = false;
+  }
+  if (node4) {
+    document.getElementById('node4').remove();
+    node4 = false;
+  }
+  if (node5) {
+    document.getElementById('node5').remove();
+    node5 = false;
+  }
+  if (node6) {
+    document.getElementById('node6').remove();
+    node6 = false;
+  }
+  if (node7) {
+    document.getElementById('node7').remove();
+    node7 = false;
+  }
+  if (node8) {
+    document.getElementById('node8').remove();
+    node8 = false;
+  }
+  if (node9) {
+    document.getElementById('node9').remove();
+    node9 = false;
+  }
+  if (node10) {
+    document.getElementById('node10').remove();
+    node10 = false;
+  }
+  if (node11) {
+    document.getElementById('node11').remove();
+    node11 = false;
+  }
+  if (node12) {
+    document.getElementById('node12').remove();
+    node12 = false;
+  }
+}
+
 // imageBlaze();
 let animate = function () {
-  console.log(scroll, "initial scroll", endpoint);
+  if (scroll == 0) {
+    initialNode();
+  }
+  //console.log(scroll, "initial scroll", endpoint);
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 };
@@ -945,9 +1195,9 @@ animate();
 
 
 
-  // var light = new THREE.DirectionalLight(0xffffff, 5);
-  // light.position.setScalar(10);
-  // scene.add(light);
+// var light = new THREE.DirectionalLight(0xffffff, 5);
+// light.position.setScalar(10);
+// scene.add(light);
 
 
 
@@ -1004,7 +1254,7 @@ animate();
 //       vertices.push( vert[0], vert[1] );    
 //   }
   
-//   console.log('the vertices are: '+vertices);
+//   //console.log('the vertices are: '+vertices);
 //   var vertBuffer = gl.createBuffer();
 //   gl.bindBuffer(gl.ARRAY_BUFFER, vertBuffer);
 //   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -1017,7 +1267,7 @@ animate();
 //   gl.shaderSource(vertShader, vertSrc);
 //   gl.compileShader(vertShader);
 //   if (!gl.getShaderParameter(vertShader, gl.COMPILE_STATUS)) {
-//     console.error('ERROR compiling vertex shader!', gl.getShaderInfoLog(vertShader));
+//     //console.error('ERROR compiling vertex shader!', gl.getShaderInfoLog(vertShader));
 //     return;
 //   }
 
@@ -1028,7 +1278,7 @@ animate();
 //   gl.shaderSource(fragShader, fragSrc);
 //   gl.compileShader(fragShader);
 //   if (!gl.getShaderParameter(fragShader, gl.COMPILE_STATUS)) {
-//     console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragShader));
+//     //console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragShader));
 //     return;
 //   }
 
@@ -1039,12 +1289,12 @@ animate();
 //   gl.useProgram(shaderProg);
   
 //   if (!gl.getProgramParameter(shaderProg, gl.LINK_STATUS)) {
-//     console.error('ERROR linking program!', gl.getProgramInfoLog(shaderProg));
+//     //console.error('ERROR linking program!', gl.getProgramInfoLog(shaderProg));
 //     return;
 //   }
 //   gl.validateProgram(shaderProg);
 //   if (!gl.getProgramParameter(shaderProg, gl.VALIDATE_STATUS)) {
-//     console.error('ERROR validating program!', gl.getProgramInfoLog(shaderProg));
+//     //console.error('ERROR validating program!', gl.getProgramInfoLog(shaderProg));
 //     return;
 //   }
 

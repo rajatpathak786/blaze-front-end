@@ -13,16 +13,23 @@
 		</style>
 	</head>
 	<body>
-    <div id="myScene">
-    </div>
-    <div id ="infoi">
-      <img src="https://blazeprotocol.io/wp-content/themes/blaze-new/images/logo-white.png" />
-      <p id="para">The New-Age Multidimensional Ledger</p>
-    </div>
-    <!-- <svg height=300% width=100% position="absolute" id="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg> -->
+    <section class="page home">
+      <div id="myScene">
+        <svg position="absolute" id="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+      </div>
+      <div id ="infoi">
+        <img src="https://blazeprotocol.io/wp-content/themes/blaze-new/images/logo-white.png" />
+        <p id="para">The New-Age Multidimensional Ledger</p>
+      </div>    
+    </section>
+    <!-- <section >
+
+    </section> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- <scrip src="https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js"></scrip> -->
     <script src="animation.js"></script>
+    <script src="transition.js"></script>
     <!-- <script src="scroll.js"></script> -->
 	</body>
 </html>
@@ -45,12 +52,17 @@
   left: 0%;
   background: black;
 }
+#myScene,
+#mySVG {
+  height: 100%;
+  width: 100%;
+}
 #infoi {
   width: 10%;
   height: 3%;
   z-index: 10;
   margin-top: 2%;
-  margin-left: 45%;
+  margin-left: 40%;
 }
 #para {
   color: white;
