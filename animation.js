@@ -42,18 +42,19 @@ function createCircle(x, y, color, id) {
   document.getElementById("mySVG").appendChild(myCircle);
   //console.log(myCircle);
 }
-
+// createCircle('25%', '37.8%', 'red', 'node5');
+// createCircle('65.2%', '16%', 'blue', 'node3');
 // createCircle(0.652*x, 0.28*y, 'red', 'node2_mid');
 // createCircle(0.375*x, 0.40*y, 'red')
-// createCircle(0.4699*x, 0.854*y, 'red', 'node4');
-// createCircle(0.678*x, 1.044*y, 'red', 'node7')
-// createCircle(0.588*x, 1.324*y, 'red', 'node6');
+// createCircle('46.8%', '28.5%', 'red', 'node4');
+// createCircle('68%', '34.6%', 'red', 'node7');
+// createCircle('59%', '44%', 'red', 'node6');
 // createCircle(0.25*x, 1.139*y, 'red')
-// createCircle(0.3806*x, 1.6906*y, 'red', 'node8')
-// createCircle(0.185*x, 1.89*y, 'red', 'node9');
-// createCircle(0.715*x, 1.84*y, 'red', 'node12')
-// createCircle(0.652*x, 2.152 *y, 'red', 'node11');
-// createCircle(0.346*x, 2.252 *y, 'red', 'node10');
+// createCircle('38.06%', '56%', 'red', 'node8');
+// createCircle('18.5%', '62.5%', 'red', 'node9');
+// createCircle('71.5%', '61.2%', 'red', 'node12');
+// createCircle('65.3%', '71.6%', 'red', 'node11');
+// createCircle('34.6%', '74%', 'red', 'node10');
 // createCircle(0.652*x, 0.28*y, 'black')
 
 function update() {
@@ -206,7 +207,7 @@ function latus1scrolldown() {
       l1endpointx = -0.2 * x;
       l1endpointy = 0.6 * y;
       if (!node2) {
-        createCircle(0.375*x, 0.4*y, 'red', 'node2');
+        createCircle('37.5%', '13%', 'red', 'node2');
         node2 = true;
       }
       //console.log(scroll, "LATUS 1 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
@@ -216,7 +217,7 @@ function latus1scrolldown() {
     }
     if (l1endpointx < 0.25 * x) {
       if (!node1) {
-        createCircle(0.652*x, 0.28*y, 'red', 'node1');
+        createCircle('65.2%', '9%', 'red', 'node1');
         node1 = true;
       }
       latus2scrolldown();
@@ -254,7 +255,7 @@ function latus2scrolldown() {
       //console.log(scroll, "LATUS 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
       l2endpointy = 0.55 * y;
       if (!node3) {
-        createCircle(0.652*x, 0.5*y, 'red', 'node3');
+       createCircle('65.2%', '16%', 'red', 'node3');
         node3 = true;
       }
       latus3scrolldown();
@@ -289,7 +290,7 @@ function latus3scrolldown() {
       l3endpointx = -0.05 * x;
       l3endpointy = 0.35 * y;
       if (!node4) {
-        createCircle(0.4699*x, 0.854*y, 'red', 'node4');
+        createCircle('46.8%', '28.5%', 'red', 'node4');
         node4 = true;
       }
       //console.log(scroll, "L3 points *************************************************************************");
@@ -341,7 +342,7 @@ function latus4scrolldown() {
       l4endpointx = -0.4 * x;
       l4endpointy = 0.2 * y;
       if (!node5) {
-        createCircle(0.25*x, 1.139*y, 'red', 'node5');
+        createCircle('25%', '37.8%', 'red', 'node5');
         node5 = true;
       }
     } else {
@@ -388,7 +389,7 @@ function latus5scrolldown() {
       l5endpointx = 0.15 * x;
       l5endpointy = 0.1 * y;
       if (!node6) {
-        createCircle(0.588*x, 1.324*y, 'red', 'node6');
+        createCircle('59%', '44%', 'red', 'node6');
         node6 = true;
       }
       //console.log(scroll, 'L5 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
@@ -437,7 +438,7 @@ function latus6scrolldown() {
       l6endpointx = 0.3 * x;
       l6endpointy = 0.25 * y;
       if (!node7) {
-        createCircle(0.678*x, 1.044*y, 'red', 'node7');
+        createCircle('68%', '34.6%', 'red', 'node7');
         node7 = true;
       }
     } else {
@@ -475,7 +476,7 @@ function latus7scrolldown() {
       l7endpointx = -0.2 * x;
       l7endpointy = -0.1 * y;
       if (!node8) {
-        createCircle(0.3806*x, 1.6906*y, 'red', 'node8');
+        createCircle('38.06%', '56%', 'red', 'node8');
         node8 = true;
       }                                
       latus8scrolldown();
@@ -530,7 +531,7 @@ function latus8scrolldown() {
       l8endpointx = -0.5 * x;
       l8endpointy = -0.2 * y;
       if (!node9) {
-        createCircle(0.185*x, 1.89*y, 'red', 'node9');
+        createCircle('18.5%', '62.5%', 'red', 'node9');
         node9 = true;
       }
     } else {
@@ -576,7 +577,7 @@ function latus9scrolldown() {
       l9endpointx = -0.25 * x;
       l9endpointy = -0.4 * y;
       if (!node10) {
-        createCircle(0.346*x, 2.252 *y, 'red', 'node10');
+        createCircle('34.6%', '74%', 'red', 'node10');
         node10 = true;
       }
     } else {
@@ -621,7 +622,7 @@ function latus10scrolldown() {
       l10endpointx = 0.25 * x;
       l10endpointy = -0.35 * y;
       if (!node11) {
-        createCircle(0.652*x, 2.152 *y, 'red', 'node11');
+        createCircle('65.3%', '71.6%', 'red', 'node11');
         node11 = true;
       }
     } else {
@@ -666,7 +667,7 @@ function latus11scrolldown() {
       l11endpointx = 0.35 * x;
       l11endpointy = -0.18 * y;
       if (!node12) {
-        createCircle(0.715*x, 1.84*y, 'red', 'node12');
+        createCircle('71.5%', '61.2%', 'red', 'node12');
         node12 = true;
       }
     } else {
@@ -712,7 +713,7 @@ function updateDrawDown() {
     scene.remove(line1);
     latus1();
     if (!node2) {
-      createCircle(0.375*x, 0.4*y, 'red', 'node2');
+      createCircle('37.5%', '13%', 'red', 'node2');
       node2 = true;
     }
     if (endpoint > 0.6 * y) {
@@ -727,7 +728,7 @@ function updateDrawDown() {
     scene.remove(line2);
     latus2();
     if (!node3) {
-      createCircle(0.652*x, 0.5*y, 'red', 'node3');
+     createCircle('65.2%', '16%', 'red', 'node3');
       node3 = true;
     }
     if (endpoint > 0.55 * y) {
@@ -755,7 +756,7 @@ function updateDrawDown() {
     scene.remove(line3);
     latus3();
     if (!node4) {
-      createCircle(0.4699*x, 0.854*y, 'red', 'node4');
+      createCircle('46.8%', '28.5%', 'red', 'node4');
       node4 = true;
     }
     if (endpoint > 0.35 * y) {
@@ -798,15 +799,15 @@ function updateDrawDown() {
     latus5();
     latus6();
     if (!node5) {
-      createCircle(0.25*x, 1.139*y, 'red', 'node5');
+      createCircle('25%', '37.8%', 'red', 'node5');
       node5 = true;
     }
     if (!node6) {
-      createCircle(0.588*x, 1.324*y, 'red', 'node6');
+      createCircle('59%', '44%', 'red', 'node6');
       node6 = true;
     }
     if (!node7) {
-      createCircle(0.678*x, 1.044*y, 'red', 'node7');
+      createCircle('68%', '34.6%', 'red', 'node7');
       node7 = true;
     }
     if (endpoint > 0.1 * y) {
@@ -832,7 +833,7 @@ function updateDrawDown() {
     scene.remove(line7);
     latus7();
     if (!node8) {
-      createCircle(0.3806*x, 1.6906*y, 'red', 'node8');
+      createCircle('38.06%', '56%', 'red', 'node8');
       node8 = true;
     }
     if (endpoint > -0.1 * y) {
@@ -879,19 +880,19 @@ function updateDrawDown() {
     latus10();
     latus11();
     if (!node9) {
-      createCircle(0.185*x, 1.89*y, 'red', 'node9');
+              createCircle('18.5%', '62.5%', 'red', 'node9');
       node9 = true;
     }
     if (!node10) {
-      createCircle(0.346*x, 2.252 *y, 'red', 'node10');
+      createCircle('34.6%', '74%', 'red', 'node10');
       node10 = true;
     }
     if (!node11) {
-      createCircle(0.652*x, 2.152 *y, 'red', 'node11');
+      createCircle('65.3%', '71.6%', 'red', 'node11');
       node11 = true;
     }
     if (!node12) {
-      createCircle(0.715*x, 1.84*y, 'red', 'node12');
+      createCircle('71.5%', '61.2%', 'red', 'node12');
       node12 = true;
     }
     if (endpoint > -0.4 * y) {
