@@ -31,7 +31,6 @@ document.getElementById("myScene").appendChild(renderer.domElement);
 
 var svgNS = "http://www.w3.org/2000/svg";
 function createCircle(x, y, color, id) {
-  //console.log(x, y, color, id);
   var myCircle = document.createElementNS(svgNS, "circle"); //to create a circle. for rectangle use "rectangle"
   myCircle.setAttributeNS(null, "id", id);
   myCircle.setAttributeNS(null, "cx", x);
@@ -40,7 +39,6 @@ function createCircle(x, y, color, id) {
   myCircle.setAttributeNS(null, "fill", color);
   myCircle.setAttributeNS(null, "stroke", "black");
   document.getElementById("mySVG").appendChild(myCircle);
-  //console.log(myCircle);
 }
 // createCircle('25%', '37.8%', 'red', 'node5');
 // createCircle('65.2%', '16%', 'blue', 'node3');
@@ -59,7 +57,7 @@ function createCircle(x, y, color, id) {
 
 function update() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 10 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 10 });
   geometry.vertices.push(new THREE.Vector3(x / 2, y, 0)); //x, y, z//500
   geometry.vertices.push(new THREE.Vector3(x / 2, endpoint, 0));
   line = new THREE.Line(geometry, material);
@@ -71,7 +69,7 @@ update();
 
 function latus1() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 }); //#ff0000
   geometry.vertices.push(new THREE.Vector3(0.5 * x, 0.7 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l1endpointx, l1endpointy, 0));
   line1 = new THREE.Line(geometry, material);
@@ -83,7 +81,7 @@ latus1();
 
 function latus2() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(0.25 * x, 0.665 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l2endpointx, l2endpointy, 0));
   line2 = new THREE.Line(geometry, material);
@@ -95,7 +93,7 @@ latus2();
 
 function latus3() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(0.25 * x, 0.55 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l3endpointx, l3endpointy, 0));
   line3 = new THREE.Line(geometry, material);
@@ -107,7 +105,7 @@ latus3();
 
 function latus4() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.05 * x, 0.35 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l4endpointx, l4endpointy, 0));
   line4 = new THREE.Line(geometry, material);
@@ -119,7 +117,7 @@ latus4();
 
 function latus5() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.05 * x, 0.35 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l5endpointx, l5endpointy, 0));
   line5 = new THREE.Line(geometry, material);
@@ -131,7 +129,7 @@ latus5();
 
 function latus6() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.05 * x, 0.35 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l6endpointx, l6endpointy, 0));
   line6 = new THREE.Line(geometry, material);
@@ -143,7 +141,7 @@ latus6();
 
 function latus7() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(0.15 * x, 0.1 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l7endpointx, l7endpointy, 0));
   line7 = new THREE.Line(geometry, material);
@@ -155,7 +153,7 @@ latus7();
 
 function latus8() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.2 * x, -0.1 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l8endpointx, l8endpointy, 0));
   line8 = new THREE.Line(geometry, material);
@@ -167,7 +165,7 @@ latus8();
 
 function latus9() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.2 * x, -0.1 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l9endpointx, l9endpointy, 0));
   line9 = new THREE.Line(geometry, material);
@@ -179,7 +177,7 @@ latus9();
 
 function latus10() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.2 * x, -0.1 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l10endpointx, l10endpointy, 0));
   line10 = new THREE.Line(geometry, material);
@@ -191,7 +189,7 @@ latus10();
 
 function latus11() {
   geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#ff0000', linewidth: 4 });
+  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(-0.2 * x, -0.1 * y, 0)); //x, y, z
   geometry.vertices.push(new THREE.Vector3(l11endpointx, l11endpointy, 0));
   line11 = new THREE.Line(geometry, material);
