@@ -205,7 +205,7 @@ function latus1scrolldown() {
       l1endpointx = -0.2 * x;
       l1endpointy = 0.6 * y;
       if (!node2) {
-        createCircle('37.5%', '13%', 'red', 'node2');
+        createCircle('37.5%', '13.338%', 'red', 'node2');
         node2 = true;
       }
       //console.log(scroll, "LATUS 1 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
@@ -215,7 +215,7 @@ function latus1scrolldown() {
     }
     if (l1endpointx < 0.25 * x) {
       if (!node1) {
-        createCircle('65.2%', '9%', 'red', 'node1');
+        createCircle('65.2%', '9.2%', 'red', 'node1');
         node1 = true;
       }
       latus2scrolldown();
@@ -711,7 +711,7 @@ function updateDrawDown() {
     scene.remove(line1);
     latus1();
     if (!node2) {
-      createCircle('37.5%', '13%', 'red', 'node2');
+      createCircle('37.5%', '13.338%', 'red', 'node2');
       node2 = true;
     }
     if (endpoint > 0.6 * y) {
@@ -878,7 +878,7 @@ function updateDrawDown() {
     latus10();
     latus11();
     if (!node9) {
-              createCircle('18.5%', '62.5%', 'red', 'node9');
+      createCircle('18.5%', '62.5%', 'red', 'node9');
       node9 = true;
     }
     if (!node10) {

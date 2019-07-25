@@ -15,36 +15,44 @@
 	<body>
     <!-- <div id="barba-wrapper">
       <div class="barba-container"> -->
-        <section class="page home">
-          <div class="main">
-            <div id="myScene">
-              <svg position="absolute" id="mySVG" height=100% width=100% xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
-            </div>
-            <div id ="infoi">
-              <img src="https://blazeprotocol.io/wp-content/themes/blaze-new/images/logo-white.png" />
-              <p id="para">The New-Age Multidimensional Ledger</p>
-            </div>
+    <div id ="infoi">
+      <img src="https://blazeprotocol.io/wp-content/themes/blaze-new/images/logo-white.png" />
+      <p id="para">The New-Age Multidimensional Ledger</p>
+    </div>   
+      <section class="page home">
+        <div class="main">
+          <div id="myScene">
+            <svg position="absolute" id="mySVG" height=100% width=100% xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg> 
           </div>
-        </section>
+        </div>
+      </section>
       <!-- </div>     -->
-        <section data-router-view="node1" class="page node1">
-          <div class="main">
-            <h1>Node1</h1>
-            <a class="index">Home</a>
-          </div>
-        </section>
-        <section data-router-view="node2" class="page node2">
-          <div class="main">
-            <h1>Node2</h1>
-            <a class="index">Home</a>
-          </div>
-        </section>
+      <section id="section1" class="page node1">
+        <div class="node_1">
+          <h1>Node1</h1>
+          <a class="index">Home</a>
+        </div>
+        <svg position="absolute" id="mySVG_node1" height=100% width=100% xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+      </section>
+      <section id="section2" class="page node2">
+        <div class="node_2">
+          <h1>Node2</h1>
+          <a class="index">Home</a>
+        </div>
+      </section>
+      <section id="section3" class="page node3">
+        <div class="node_3">
+          <h1>Node3</h1>
+          <a class="index">Home</a>
+        </div>
+      </section>
       <!-- </div> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="animation.js"></script>
     <script src="transition.js"></script>
+    <script src="circleTransitions.js"></script>
 	</body>
 </html>
 
