@@ -1,9 +1,9 @@
-let node_transition, displayout, r, node_x, node_y, y_final, x_initial, y_initial, x_final = 99; 
+let node_transition, displayout, r, node_x, node_y, y_final, x_initial, y_initial, x_final = 99;
 // node_y_final = 25, node2x, node2y, node2y_final = 26, y_final, id;
 var svgNS = "http://www.w3.org/2000/svg";
 $('.page.home').show();
-$(document).ready(function(){
-  $('svg').on('click', '#node1',function(e) {
+$(document).ready(function () {
+  $('svg').on('click', '#node1', function (e) {
     // $('#node1').on('click', function(e){
     if (e.handled != true) {
       $('.page').hide();
@@ -13,7 +13,7 @@ $(document).ready(function(){
       e.handled = true;
     }
   })
-  $('svg').on('click', '#node2',function(e) {
+  $('svg').on('click', '#node2', function (e) {
     if (e.handled != true) {
       $('.page').hide();
       $('.node1').show();
@@ -21,20 +21,30 @@ $(document).ready(function(){
       animateNode(node_x, node_y, 'node_side');
       e.handled = true;
     }
-  })    
-  $('svg').on('click', '#node_side', function(e) {
+  })
+  $('svg').on('click', '#node_side', function (e) {
     if (e.handled != true) {
+      $(".parabox").css("visibility", "hidden")
       animateNode(node_x, node_y, 'node_side');
       e.handled = true;
     }
   })
 })
 
+$('#home_button').on('click', function (e) {
+  if (e.handled != true) {
+    $(".parabox").css("visibility", "hidden")
+    animateNode(node_x, node_y, 'node_side');
+    e.handled = true;
+  }
+})
+
+
 function animateNode(x, y, id) {
   console.log(x, y, id);
-  if(document.getElementById('section1').style.display == 'block') {
+  if (document.getElementById('section1').style.display == 'block') {
     if (displayout) {
-      displayOut(id);  
+      displayOut(id);
     } else {
       r = 20;
       x_initial = node_x;
@@ -64,6 +74,7 @@ function display(id) {
     }, 10);
   } else {
     console.log(node_x, node_y, x_initial, y_initial);
+    $(".parabox").css("visibility", "visible")
     displayout = true;
     node_x = x_final, node_y = y_final;
   }
@@ -95,7 +106,7 @@ function displayOut(id) {
     $('.page').hide();
     $('.page.home').show();
   }
-  
+
 }
 
 function CreateCircle(x, y, r, color, id) {
@@ -121,9 +132,9 @@ function CreateCircle(x, y, r, color, id) {
   }
   if (displayout) {
     displayOut(id);
-  } else if (r !=20) { //(r != 200 && r !=20)
+  } else if (r != 20) { //(r != 200 && r !=20)
     display(id);
-  } 
+  }
   // else {
   //   displayout = true;
   //   console.log(displayout, node_transition, r);
