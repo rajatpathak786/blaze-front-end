@@ -1,4 +1,5 @@
-let node_transition, displayout, r, node1x, node1y, x_final = 99, node1y_final = 25;
+let node_transition, displayout, r, node_x, node_y, y_final, x_initial, y_initial, x_final = 99; 
+// node_y_final = 25, node2x, node2y, node2y_final = 26, y_final, id;
 var svgNS = "http://www.w3.org/2000/svg";
 $('.page.home').show();
 $(document).ready(function(){
@@ -7,150 +8,86 @@ $(document).ready(function(){
     if (e.handled != true) {
       $('.page').hide();
       $('.node1').show();
-      node1x = 65.2, node1y = 9.2
-      animateNode(node1x, node1y, 'node1_side');
+      node_x = 65.2, node_y = 9.2, y_final = 25;
+      animateNode(node_x, node_y, 'node_side');
       e.handled = true;
     }
   })
   $('svg').on('click', '#node2',function(e) {
     if (e.handled != true) {
-      animateNode('37.5%', '13.338%', 'node2');
+      $('.page').hide();
+      $('.node1').show();
+      node_x = 37.5, node_y = 13.338, y_final = 26;
+      animateNode(node_x, node_y, 'node_side');
       e.handled = true;
     }
   })    
-  $('svg').on('click', '#node1_side', function(e) {
+  $('svg').on('click', '#node_side', function(e) {
     if (e.handled != true) {
-      node1x = 65.2, node1y = 9.2;
-      animateNode(x_final, node1y_final, 'node1_side');
+      animateNode(node_x, node_y, 'node_side');
       e.handled = true;
     }
   })
-    // })
-    // $('#node2').on('click', function(e){
-    //   if (e.handled != true) {
-    //     animateNode('37.5%', '13.338%', 'node2');
-    //     e.handled = true;
-    //   }
-    // })
-    // $('#node3').on('click', function(e){;
-    //   if (e.handled != true) {
-    //     $('.page').hide();
-    //     $('.node3').show();
-    //     e.handled = true;
-    //   }
-    // })
-    // $('#node_transition').on('click', function(e) {
-    //   if (e.handled != true) {
-    //     displayout = true;
-    //     animateNode();
-    //     e.handled = true;
-    //   }
-    // })
 })
-// });
-
-// $('.index').click(function(e) {
-//   if (e.handled != true) {
-//     // node_transition = false;
-//     // r = 18;
-//     // document.getElementById('node_transition').remove();
-//     // $('.page').hide();
-//     // $('.page.home').show();
-//     displayout = true;
-//     animateNode();
-//     e.handled = true;
-//   }
-// })
 
 function animateNode(x, y, id) {
   console.log(x, y, id);
   if(document.getElementById('section1').style.display == 'block') {
-    // let a = 0
-    // for (let r = 20; r <= 200; r = r + 2) {
-    //   a += 10
-    //   let display = async(r) => {
-    //     setTimeout(() => {
-    //       CreateCircle('66%', '10%', r, 'red', 'node_transition')
-    //       if (r == 200) {
-    //         // removeElements();
-    //       }
-    //     }, a);
-    //   }
-    //   console.log(r)
-    //   await display(r); 
-    // }
     if (displayout) {
-      displayOut(x, y, id);  
+      displayOut(id);  
     } else {
       r = 20;
-      console.log(x, y, id);
-      display(x, y, id);
-    }
-    // CreateCircle('66%', '10%', '20', 'red', 'node_transition');
-    // document.getElementById('node_transition').remove();
-  }
-  else if (document.getElementById('home').style.display == 'block') {
-    if (displayout) {
-      displayOut(x, y, id);  
-    } else {
-      r = 20;
-      console.log(x, y, id, r);
-      display(x, y, id);
+      x_initial = node_x;
+      y_initial = node_y;
+      display(id);
     }
   }
 }
 
-function display(x, y, id) {
+function display(id) {
+  console.log(id)
   if (r < 600) {
     r = r + 10;
   }
-  if (node1x < x_final) {
-    node1x = node1x + 0.6;
+  if (node_x < x_final) {
+    node_x = node_x + 0.6;
   }
-  if (node1y < node1y_final) {
-    node1y = node1y + 0.2
+  if (node_y < y_final) {
+    node_y = node_y + 0.2
   }
-  console.log(x, y, id, r);
-  // if (node_transition) {
-  //   node_transition = false;
-  //   document.getElementById('node_transition').remove();
-  // }
-  console.log(node1x, node1y);
-  if (!(r >= 600 && node1x >= x_final && node1y >= node1y_final)) {
+  console.log(node_x, node_y, id, r);
+  console.log(node_x, node_y);
+  if (!(r >= 600 && node_x >= x_final && node_y >= y_final)) {
     setTimeout(() => {
       // CreateCircle('65.2%', '9.2%', r, 'red', 'node_transition');
-      CreateCircle(`${node1x}%`, `${node1y}%`, r, 'red', id);
+      CreateCircle(`${node_x}%`, `${node_y}%`, r, 'red', id);
     }, 10);
   } else {
+    console.log(node_x, node_y, x_initial, y_initial);
     displayout = true;
+    node_x = x_final, node_y = y_final;
   }
-  // else if (r > 200) {
-  //   // displayout = true;
-    
-
-  // }
 }
 
-function displayOut(x, y, id) {
+function displayOut(id) {
   console.log(r, "displayOut");
   if (r > 20) {
     r = r - 10;
   }
-  if (x_final > node1x) {
-    x_final = x_final - 0.6;
+  if (node_x > x_initial) {
+    node_x = node_x - 0.6;
   }
-  if (node1y_final > node1y) {
-    node1y_final = node1y_final - 0.25;
+  if (node_y > y_initial) {
+    node_y = node_y - 0.25;
   }
-  console.log(x_final, node1y_final, "^^^^^^^^^^^^^^^^^^^^^^");
-  if (!(r <= 20 && x_final <= node1x && node1y_final <= node1y)) {
+  console.log(node_x, node_y, "^^^^^^^^^^^^^^^^^^^^^^");
+  if (!(r <= 20 && node_x <= x_initial && node_y <= y_initial)) {
     setTimeout(() => {
       // CreateCircle('65.2%', '9.2%', r, 'red', 'node_transition');
       node_transition = true;
-      CreateCircle(`${x_final}%`, `${node1y_final}%`, r, 'red', id);
+      CreateCircle(`${node_x}%`, `${node_y}%`, r, 'red', id);
     }, 10);
   } else {
-    x_final = 99, node1y_final = 25;
     node_transition = false;
     document.getElementById(id).remove();
     r = 20;
@@ -183,9 +120,9 @@ function CreateCircle(x, y, r, color, id) {
     node_transition = true;
   }
   if (displayout) {
-    displayOut(x , y, id);
+    displayOut(id);
   } else if (r !=20) { //(r != 200 && r !=20)
-      display(x, y, id);
+    display(id);
   } 
   // else {
   //   displayout = true;
