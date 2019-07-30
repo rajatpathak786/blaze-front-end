@@ -40,20 +40,6 @@ function createCircle(x, y, color, id) {
   myCircle.setAttributeNS(null, "stroke", "black");
   document.getElementById("mySVG").appendChild(myCircle);
 }
-// createCircle('25%', '37.8%', 'red', 'node5');
-// createCircle('65.2%', '16%', 'blue', 'node3');
-// createCircle(0.652*x, 0.28*y, 'red', 'node2_mid');
-// createCircle(0.375*x, 0.40*y, 'red')
-// createCircle('46.8%', '28.5%', 'red', 'node4');
-// createCircle('68%', '34.6%', 'red', 'node7');
-// createCircle('59%', '44%', 'red', 'node6');
-// createCircle(0.25*x, 1.139*y, 'red')
-// createCircle('38.06%', '56%', 'red', 'node8');
-// createCircle('18.5%', '62.5%', 'red', 'node9');
-// createCircle('71.5%', '61.2%', 'red', 'node12');
-// createCircle('65.3%', '71.6%', 'red', 'node11');
-// createCircle('34.6%', '74%', 'red', 'node10');
-// createCircle(0.652*x, 0.28*y, 'black')
 
 function update() {
   geometry = new THREE.Geometry();
@@ -253,7 +239,7 @@ function latus2scrolldown() {
       //console.log(scroll, "LATUS 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
       l2endpointy = 0.55 * y;
       if (!node3) {
-       createCircle('65.2%', '16%', 'red', 'node3');
+       createCircle('65.1%', '16.42%', 'red', 'node3');
         node3 = true;
       }
       latus3scrolldown();
@@ -288,7 +274,7 @@ function latus3scrolldown() {
       l3endpointx = -0.05 * x;
       l3endpointy = 0.35 * y;
       if (!node4) {
-        createCircle('46.8%', '28.5%', 'red', 'node4');
+        createCircle('47.2%', '28.5%', 'red', 'node4');
         node4 = true;
       }
       //console.log(scroll, "L3 points *************************************************************************");
@@ -340,7 +326,7 @@ function latus4scrolldown() {
       l4endpointx = -0.4 * x;
       l4endpointy = 0.2 * y;
       if (!node5) {
-        createCircle('25%', '37.8%', 'red', 'node5');
+        createCircle('25.264%', '37.8%', 'red', 'node5');
         node5 = true;
       }
     } else {
@@ -387,7 +373,7 @@ function latus5scrolldown() {
       l5endpointx = 0.15 * x;
       l5endpointy = 0.1 * y;
       if (!node6) {
-        createCircle('59%', '44%', 'red', 'node6');
+        createCircle('58.75%', '44%', 'red', 'node6');
         node6 = true;
       }
       //console.log(scroll, 'L5 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
@@ -529,7 +515,7 @@ function latus8scrolldown() {
       l8endpointx = -0.5 * x;
       l8endpointy = -0.2 * y;
       if (!node9) {
-        createCircle('18.5%', '62.5%', 'red', 'node9');
+        createCircle('18.56%', '62.5%', 'red', 'node9');
         node9 = true;
       }
     } else {
@@ -726,7 +712,7 @@ function updateDrawDown() {
     scene.remove(line2);
     latus2();
     if (!node3) {
-     createCircle('65.2%', '16%', 'red', 'node3');
+     createCircle('65.1%', '16.42%', 'red', 'node3');
       node3 = true;
     }
     if (endpoint > 0.55 * y) {
@@ -754,7 +740,7 @@ function updateDrawDown() {
     scene.remove(line3);
     latus3();
     if (!node4) {
-      createCircle('46.8%', '28.5%', 'red', 'node4');
+      createCircle('47.2%', '28.5%', 'red', 'node4');
       node4 = true;
     }
     if (endpoint > 0.35 * y) {
@@ -797,11 +783,11 @@ function updateDrawDown() {
     latus5();
     latus6();
     if (!node5) {
-      createCircle('25%', '37.8%', 'red', 'node5');
+      createCircle('25.264%', '37.8%', 'red', 'node5');
       node5 = true;
     }
     if (!node6) {
-      createCircle('59%', '44%', 'red', 'node6');
+      createCircle('58.75%', '44%', 'red', 'node6');
       node6 = true;
     }
     if (!node7) {
@@ -878,7 +864,7 @@ function updateDrawDown() {
     latus10();
     latus11();
     if (!node9) {
-      createCircle('18.5%', '62.5%', 'red', 'node9');
+      createCircle('18.56%', '62.5%', 'red', 'node9');
       node9 = true;
     }
     if (!node10) {

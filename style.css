@@ -5,6 +5,7 @@ body{
 #myScene,
 #mySVG,
 .parabox,
+.button_whitepaper,
 #infoi {
   position: absolute;
   top: 0%;
@@ -12,15 +13,15 @@ body{
   background: black;
 }
 #infoi {
-  width: 10%;
-  height: 3%;
+  text-align: center;
+  left: 40%;
+  width: 25%;
+  height: 4%;
   z-index: 10;
   margin-top: 2%;
-  margin-left: 40%;
 }
 #para {
-  color: bisque;
-  width: 150%;
+  color: bisque; 
   font-family:Arial, Helvetica, sans-serif;
 }
 #mySVG {
@@ -29,6 +30,22 @@ body{
 .page {
   display: none;
 }
+.button_whitepaper {
+  top: 5.5%;
+  left: 42%;
+  width: 20%;
+  height: 1.8%;
+  background: transparent;
+}
+.node12,
+.node11,
+.node10,
+.node9,
+.node8,
+.node7,
+.node6,
+.node5,
+.node4,
 .node3,
 .node2,
 .node1 {
@@ -209,13 +226,75 @@ a.red:hover {
 
 
 .parabox {
+  left: 5%;
   visibility: hidden;
   display: inline-block;
-  width: 20%;
-  height: 1%;
-  margin: 15em;
-  padding: 2%;
+  /* margin-top: 10%; */
+  width: 26%;
+  height: 35%;
+  margin: 10%;
+  padding: 1%;
   /* font-size: 44%; */
 }
 
-
+#parabox1 {
+  top: 5%;
+}
+#parabox2 {
+  top: 6%;
+}
+#parabox3 {
+  top: 9%;
+}
+#parabox4 {
+  top: 15%;
+}
+#parabox5 {
+  top: 25%;
+}
+#parabox6 {
+  top: 27%;
+}
+#parabox7 {
+  top: 23%;
+}
+#parabox8 {
+  top: 39%;
+}
+#parabox9 {
+  top: 50%;
+}
+#parabox10 {
+  top: 60%;
+}
+#parabox11 {
+  top: 57%;
+}
+#parabox12 {
+  top: 47%;
+}
+/* =Footer */
+.footer-container {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  bottom: 0%;
+  left: 0;
+  color: bisque;
+  background-color: #06060d; 
+}
+.footer-container .wrapper {
+  width: 80%;
+  max-width: none;
+  margin: 0 10%; 
+}
+.footer-container h3 {
+  margin: 0;
+  padding: 20px 0;
+  font-weight: normal; 
+  color: bisque;
+}
+.footer-container a {
+  color: bisque; 
+}
