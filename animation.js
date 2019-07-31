@@ -224,7 +224,7 @@ function latus1scrollup() {
       node2 = false;
     }
   }
-  if (l1endpointx >= 0.25*x || l1endpointy >= 0.665*y) {
+  if (l1endpointx >= 0.25 * x || l1endpointy >= 0.665 * y) {
     if (node1) {
       document.getElementById('node1').remove();
       node1 = false;
@@ -240,7 +240,7 @@ function latus2scrolldown() {
       //console.log(scroll, "LATUS 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
       l2endpointy = 0.55 * y;
       if (!node3) {
-       createCircle('65.1%', '16.42%', 'red', 'node3');
+        createCircle('65.1%', '16.42%', 'red', 'node3');
         node3 = true;
       }
       latus3scrolldown();
@@ -308,7 +308,7 @@ function latus3scrollup() {
         latus3();
         if (node4) {
           document.getElementById('node4').remove();
-          node4 = false;  
+          node4 = false;
         }
       }
     }
@@ -463,7 +463,7 @@ function latus7scrolldown() {
       if (!node8) {
         createCircle('38.06%', '56%', 'red', 'node8');
         node8 = true;
-      }                                
+      }
       latus8scrolldown();
       latus9scrolldown();
       latus10scrolldown();
@@ -713,7 +713,7 @@ function updateDrawDown() {
     scene.remove(line2);
     latus2();
     if (!node3) {
-     createCircle('65.1%', '16.42%', 'red', 'node3');
+      createCircle('65.1%', '16.42%', 'red', 'node3');
       node3 = true;
     }
     if (endpoint > 0.55 * y) {
@@ -923,7 +923,7 @@ function updateDrawUp() {
   if (scroll < 225) {
     if (node4) {
       document.getElementById('node4').remove();
-      node4 = false;  
+      node4 = false;
     }
     if (l3endpointx < 0.1 * x && l3endpointy < 0.45 * y) {
       l3endpointx = 0.1 * x;
@@ -1239,7 +1239,7 @@ animate();
 //       var vert = [Math.sin(j),Math.cos(j)];
 //       vertices.push( vert[0], vert[1] );    
 //   }
-  
+
 //   //console.log('the vertices are: '+vertices);
 //   var vertBuffer = gl.createBuffer();
 //   gl.bindBuffer(gl.ARRAY_BUFFER, vertBuffer);
@@ -1273,7 +1273,7 @@ animate();
 //   gl.attachShader(shaderProg, fragShader);
 //   gl.linkProgram(shaderProg);
 //   gl.useProgram(shaderProg);
-  
+
 //   if (!gl.getProgramParameter(shaderProg, gl.LINK_STATUS)) {
 //     //console.error('ERROR linking program!', gl.getProgramInfoLog(shaderProg));
 //     return;

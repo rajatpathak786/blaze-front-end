@@ -25,7 +25,7 @@ $(document).ready(function () {
       e.handled = true;
     }
   })
-  $('svg').on('click', '#node3',function(e) {
+  $('svg').on('click', '#node3', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -36,7 +36,7 @@ $(document).ready(function () {
       e.handled = true;
     }
   })
-  $('svg').on('click', '#node4',function(e) {
+  $('svg').on('click', '#node4', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -47,7 +47,7 @@ $(document).ready(function () {
       e.handled = true;
     }
   })
-  $('svg').on('click', '#node5',function(e) {
+  $('svg').on('click', '#node5', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -58,7 +58,7 @@ $(document).ready(function () {
       e.handled = true;
     }
   })
-  $('svg').on('click', '#node6',function(e) {
+  $('svg').on('click', '#node6', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -68,8 +68,8 @@ $(document).ready(function () {
       animateNode(node_x, node_y, 'node_side');
       e.handled = true;
     }
-  })   
-  $('svg').on('click', '#node7',function(e) {
+  })
+  $('svg').on('click', '#node7', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -80,7 +80,7 @@ $(document).ready(function () {
       e.handled = true;
     }
   })
-  $('svg').on('click', '#node8',function(e) {
+  $('svg').on('click', '#node8', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -91,7 +91,7 @@ $(document).ready(function () {
       e.handled = true;
     }
   })
-  $('svg').on('click', '#node9',function(e) {
+  $('svg').on('click', '#node9', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -102,7 +102,7 @@ $(document).ready(function () {
       e.handled = true;
     }
   })
-  $('svg').on('click', '#node10',function(e) {
+  $('svg').on('click', '#node10', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -112,8 +112,8 @@ $(document).ready(function () {
       animateNode(node_x, node_y, 'node_side');
       e.handled = true;
     }
-  })   
-  $('svg').on('click', '#node11',function(e) {
+  })
+  $('svg').on('click', '#node11', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -124,7 +124,7 @@ $(document).ready(function () {
       e.handled = true;
     }
   })
-  $('svg').on('click', '#node12',function(e) {
+  $('svg').on('click', '#node12', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
       $('.page').hide();
@@ -147,16 +147,16 @@ $(document).ready(function () {
       animateNode(node_x, node_y, 'node_side');
       e.handled = true;
     }
-  })   
+  })
   $('svg').on('click', '#node_side', function (e) {
     if (e.handled != true) {
       $(".parabox").css("visibility", "hidden")
-      window.scrollTo(0, y_offset/4);
+      window.scrollTo(0, y_offset / 4);
       setTimeout(() => {
-        window.scrollTo(0, y_offset/2);
+        window.scrollTo(0, y_offset / 2);
       }, 10);
       setTimeout(() => {
-        window.scrollTo(0, 3*y_offset/4);
+        window.scrollTo(0, 3 * y_offset / 4);
       }, 10);
       animateNode(node_x, node_y, 'node_side');
       e.handled = true;
@@ -171,8 +171,16 @@ $('#home_button').on('click', function (e) {
     e.handled = true;
   }
 })
+$(window).scroll(function () {
+  $("#home_button").stop().animate({ "marginTop": ($(window).scrollTop()) + "px" }, "medium");
+});
 
 function animateNode(x, y, id, svgID) {
+  if (document.getElementById('home_button_ul').style.display == 'block') {
+    $(".home_button_ul").hide();
+  } else {
+    $(".home_button_ul").show();
+  }
   // console.log(x, y, id);
   if (displayout) {
     displayOut(id);
