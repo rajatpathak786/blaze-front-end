@@ -1,7 +1,8 @@
 body{
-  position: relative;
+  position: absolute;
   color: red; 
 }
+body,
 #myScene,
 #mySVG,
 .parabox,
@@ -234,9 +235,10 @@ a.red:hover {
   height: 35%;
   margin: 10%;
   padding: 1%;
+  top: 5%;
   /* font-size: 44%; */
 }
-
+/* 
 #parabox1 {
   top: 5%;
 }
@@ -272,10 +274,10 @@ a.red:hover {
 }
 #parabox12 {
   top: 47%;
-}
+} */
 /* =Footer */
 .footer-container {
-  position: absolute;
+  position: fixed;
   text-align: center;
   width: 100%;
   font-size: 14px;

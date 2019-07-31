@@ -1,12 +1,13 @@
 let x = window.innerWidth;
-let y = window.innerHeight;
+let y = 981;
 let endpoint = 0.8 * y;
-let aspectRatio = window.innerWidth / window.innerHeight;
+let aspectRatio = window.innerWidth / 981;
 let scroll = window.scrollY;
 let scene = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 1000);
 camera.lookAt(0, 0, 0);
 camera.position.z = 800;
+// console.log(981,"height" ,  window.innerWidth,"width" , 2943, "scrollHeight")
 let l1endpointx = 0.5 * x, l1endpointy = 0.7 * y;;
 let l2endpointx = 0.25 * x, l2endpointy = 0.665 * y;
 let l3endpointx = 0.25 * x, l3endpointy = 0.55 * y;
@@ -21,7 +22,7 @@ let l11endpointx = -0.2 * x, l11endpointy = -0.1 * y;
 let node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12;
 let renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.domElement.id = "canvasID";
-renderer.setSize(window.innerWidth, document.documentElement.scrollHeight);
+renderer.setSize(window.innerWidth, 2943);
 document.getElementById("myScene").appendChild(renderer.domElement);
 // var light = new THREE.PointLight(0xffffff, 1, 0);
 // light.position.set(-0.1 * x, 0.75 * y, 100);
@@ -1072,8 +1073,8 @@ function scrollup() {
 
 window.addEventListener('resize', function () {
   // location.reload();
-  camera.aspect = window.innerWidth / window.innerHeight;
-  renderer.setSize(window.innerWidth, document.documentElement.scrollHeight);
+  camera.aspect = window.innerWidth / 981;
+  renderer.setSize(window.innerWidth, 2943);
 });
 
 window.addEventListener('scroll', function () {
