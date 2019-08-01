@@ -302,11 +302,11 @@ a.red:hover {
 .hot-container {
   width: 10%;
   left: -2%;
-  top: 5%;
+  top: 15%;
 	width: 100%;
   text-align: center;
   z-index: 10;
-  position: absolute;
+  position: relative;
 }
 a.btn {
 	display: inline-block;
