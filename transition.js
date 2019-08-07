@@ -5,7 +5,6 @@ $(document).ready(function () {
   $('svg').on('click', '#node1', function (e) {
     if (e.handled != true) {
       y_offset = scrollY;
-      console.log(y_offset);
       $('.page').hide();
       $('.node1').show();
       window.scrollTo(0, 0);
@@ -130,19 +129,6 @@ $(document).ready(function () {
       $('.page').hide();
       $('.node12').show();
       window.scrollTo(0, 0);
-      // window.scrollTo(0, 5*y_offset/6);
-      // setTimeout(() => {
-      //   window.scrollTo(0, 4*y_offset/6);
-      // }, 10);
-      // setTimeout(() => {
-      //   window.scrollTo(0, 3*y_offset/6);
-      // }, 10);
-      // setTimeout(() => {
-      //   window.scrollTo(0, 2*y_offset/6);
-      // }, 10);
-      // setTimeout(() => {
-      //   window.scrollTo(0, 1*y_offset/6);
-      // }, 10);
       node_x = 71.5, node_y = 61.2, y_final = 40, svgID = `mySVG_node12`; //67
       animateNode(node_x, node_y, 'node_side');
       e.handled = true;
@@ -150,7 +136,7 @@ $(document).ready(function () {
   })
   $('svg').on('click', '#node_side', function (e) {
     if (e.handled != true) {
-      $(".parabox").css("visibility", "hidden")
+      $(".parabox").fadeOut(500)
       window.scrollTo(0, y_offset / 4);
       setTimeout(() => {
         window.scrollTo(0, y_offset / 2);
@@ -166,7 +152,7 @@ $(document).ready(function () {
 
 $('#home_button').on('click', function (e) {
   if (e.handled != true) {
-    $(".parabox").css("visibility", "hidden")
+    $(".parabox").fadeOut(500);
     animateNode(node_x, node_y, 'node_side');
     e.handled = true;
   }
@@ -179,9 +165,8 @@ function animateNode(x, y, id, svgID) {
   if (document.getElementById('home_button_ul').style.display == 'block') {
     $(".home_button_ul").hide();
   } else {
-    $(".home_button_ul").show();
+    $(".home_button_ul").fadeIn(500);
   }
-  // console.log(x, y, id);
   if (displayout) {
     displayOut(id);
   } else {
@@ -193,7 +178,6 @@ function animateNode(x, y, id, svgID) {
 }
 
 function display(id) {
-  // console.log(id)
   if (r < 600) {
     r = r + 10;
   }
@@ -205,8 +189,6 @@ function display(id) {
   } else {
     node_y = node_y - 0.5;
   }
-  // console.log(node_x, node_y, id, r);
-  // console.log(node_x, node_y);
   if (!(r >= 600 && node_x >= x_final && node_y >= y_final) && (y_initial < y_final)) {
     setTimeout(() => {
       CreateCircle(`${node_x}%`, `${node_y}%`, r, 'red', id);
@@ -217,8 +199,7 @@ function display(id) {
     }, 10);
   }
   else {
-    // console.log(node_x, node_y, x_initial, y_initial);
-    $(".parabox").css("visibility", "visible")
+    $(".parabox").fadeIn(500)
     displayout = true;
     node_x = x_final, node_y = y_final;
     window.scrollTo(0, 0);
@@ -226,7 +207,6 @@ function display(id) {
 }
 
 function displayOut(id) {
-  // console.log(r, "displayOut");
   if (r > 20) {
     r = r - 10;
   }
@@ -238,16 +218,13 @@ function displayOut(id) {
   } else {
     node_y = node_y + 0.5;
   }
-  // console.log(node_x, node_y, "^^^^^^^^^^^^^^^^^^^^^^");
   if (!(r <= 20 && node_x <= x_initial && node_y <= y_initial) && (y_initial < y_final)) {
     setTimeout(() => {
-      // CreateCircle('65.2%', '9.2%', r, 'red', 'node_transition');
       node_transition = true;
       CreateCircle(`${node_x}%`, `${node_y}%`, r, 'red', id);
     }, 10);
   } else if (!(r <= 20 && node_x <= x_initial && node_y <= y_initial) && (y_initial > y_final)) {
     setTimeout(() => {
-      // CreateCircle('65.2%', '9.2%', r, 'red', 'node_transition');
       node_transition = true;
       CreateCircle(`${node_x}%`, `${node_y}%`, r, 'red', id);
     }, 10);
@@ -263,17 +240,7 @@ function displayOut(id) {
 
 }
 
-// window.addEventListener("resize", function() {
-//   console.log(node_x, node_y, r, typeof document.getElementById('node_side'));
-//   if (typeof document.getElementById('node_side') != null) {
-//     displayout = false;
-//     CreateCircle(`${node_x}%`, `${node_y}%`, r, 'red', 'node_side');
-//   }
-// })
-
 function CreateCircle(x, y, r, color, id) {
-  // console.log(x, y, id);
-  // console.log(r, node_transition, "Create Circle");
   if (node_transition) {
     node_transition = false;
     document.getElementById(id).remove();
@@ -289,33 +256,7 @@ function CreateCircle(x, y, r, color, id) {
   node_transition = true;
   if (displayout) {
     displayOut(id);
-  } else if (r != 20) { //(r != 200 && r !=20)
+  } else if (r != 20) { 
     display(id);
   }
 }
-
-
-
-
-
-
-// console.log('displayout enter', r);
-// if (r != 20) {
-//   console.log('displayout update condition', r);
-//   displayOut(x, y, id);
-// } else {
-//   console.log('displayout final', r, x, y);
-//   r = 20;
-//   displayout = false;
-//   if (document.getElementById('home').style.display == 'block') {
-//     node_transition = true;
-//     CreateCircle(x, y, r, 'red', id);
-//     displayout = false;         
-//   } else {
-//     $('.page').hide();
-//     $('.page.home').show();
-//     node_transition = true;
-//     CreateCircle(x, y, r, 'red', id);
-//     displayout = false;
-//   }
-// }

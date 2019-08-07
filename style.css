@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+html {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
 body{
   position: absolute;
-  color: red; 
+  color: #fff; 
 }
 body,
 #myScene,
@@ -10,19 +18,18 @@ body,
   position: absolute;
   top: 0%;
   left: 0%;
-  background: black;
+  background: #0b0b0b;
 }
 #infoi {
   text-align: center;
-  left: 36%;
-  width: 25%;
-  height: 4%;
+  left: 25%;
+  width: 45%;
+  height: 10%;
   z-index: 10;
   margin-top: 2%;
 }
 #para {
-  color: bisque; 
-  font-family:Arial, Helvetica, sans-serif;
+  color: #fff; 
 }
 #mySVG {
   background: transparent;
@@ -42,7 +49,7 @@ body,
 .node3,
 .node2,
 .node1 {
-  background:  black;
+  background:  #0b0b0b;
   height: 100%;
   vertical-align: center;
 }
@@ -52,28 +59,67 @@ body,
 .slide-in {
   animation: slide-in 0.5s ease forwards;
 }
-.node_1 {
-  position: relative;
-  top: 10%;
-  left: 65%;
-  color: bisque;
-}
-.node_2 {
-  position: relative;
-  top: 12%;
-  left: 36%;
-  color: bisque;
-}
-.node_3 {
-  position: relative;
-  top: 14%;
-  left: 65%;
-  color: bisque;
-}
 .index {
   position: relative;
   left: 0.5%;
   z-index: 5;
+}
+.para {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  color: #fff;
+  height: 1%;
+}
+
+.node_1 {
+  position: absolute;
+  left: 62%;
+  top: 22.6%;
+}
+.node_2 {
+  left: 34%;
+  top: 29.5%;
+}
+.node_3 {
+  left: 67%;
+  top: 31.5%;
+}
+.node_4 {
+  left: 50%;
+  top: 43.2%;
+}
+.node_5 {
+  left: 22%;
+  top: 54%;
+}
+.node_6 {
+  left: 60%;
+  top: 58.7%;
+}
+.node_7 {
+  left: 64%;
+  top: 51%;
+}
+.node_8 {
+  left: 41.5%;
+  top: 70.8%;
+}
+.node_9 {
+  left: 15%;
+  top: 79%;
+}
+.node_10 {
+  left: 32%;
+  top: 91%;
+}
+.node_11 {
+  left: 64%;
+  top: 88%;
+}
+.node_12 {
+  left: 70%;
+  top: 77.5%;
 }
 @keyframes slide-in {
   from {
@@ -148,7 +194,6 @@ li {
   font-size: 25px;		
   /* text-shadow: 0 1px 0 rgba(255,255,255,.7); */
   letter-spacing: -.065em;
-  font-family: "Hammersmith One", sans-serif;		
   -webkit-transition: all .25s ease-in-out;
   -o-transition: all .25s ease-in-out;
   -moz-transition: all .25s ease-in-out;
@@ -223,8 +268,8 @@ a.red:hover {
 
 .parabox {
   left: 5%;
-  visibility: hidden;
-  display: inline-block;
+  display: none;
+  /* display: inline-block; */
   /* margin-top: 10%; */
   width: 26%;
   height: 35%;
@@ -233,53 +278,17 @@ a.red:hover {
   top: 5%;
   /* font-size: 44%; */
 }
-/* 
-#parabox1 {
-  top: 5%;
-}
-#parabox2 {
-  top: 6%;
-}
-#parabox3 {
-  top: 9%;
-}
-#parabox4 {
-  top: 15%;
-}
-#parabox5 {
-  top: 25%;
-}
-#parabox6 {
-  top: 27%;
-}
-#parabox7 {
-  top: 23%;
-}
-#parabox8 {
-  top: 39%;
-}
-#parabox9 {
-  top: 50%;
-}
-#parabox10 {
-  top: 60%;
-}
-#parabox11 {
-  top: 57%;
-}
-#parabox12 {
-  top: 47%;
-} */
 /* =Footer */
+
 .footer-container {
   position: fixed;
   text-align: center;
   width: 100%;
-  font-size: 14px;
   bottom: 0%;
   left: 0;
-  color: bisque;
-  background-color: #06060d; 
+  color: #111;
+  background-color: #fff; 
+  padding: 10px 0;
 }
 .footer-container .wrapper {
   width: 80%;
@@ -290,10 +299,10 @@ a.red:hover {
   margin: 0;
   padding: 20px 0;
   font-weight: normal; 
-  color: bisque;
+  color: #111;
 }
 .footer-container a {
-  color: bisque; 
+  color: #111; 
 }
 
 /* view white paper css *-------------starts-----------------/*/
@@ -352,3 +361,25 @@ a.btn.btn-red {
 		border-color: rgba(0,0,0,0.9);
 	}
 /* view white paper css *-------------ends-----------------/*/
+
+#node1,#node2, #node3, #node4, #node5, #node6, #node7, #node8, #node9, #node10, #node11, #node12 {
+  fill: #e50914;
+}
+
+#node1,#node2, #node3, #node4, #node5, #node6, #node7, #node8, #node9, #node10, #node11, #node12 {
+  cursor: pointer;
+}
+
+.node_1, .node_2, .node_3, .node_4, .node_5, .node_6, .node_7, .node_8, .node_9, .node_10, .node_11, .node_12 {
+  font-weight: 500;
+}
+/*  # scroll down  */
+#scrolldown{
+  display: block;
+  position: relative;
+  z-index: 10;
+  color:red;
+  top: 1%;
+  left: -13%;
+  width: 125%;
+}
