@@ -54,137 +54,80 @@ function update() {
 
 update();
 
-function latus1() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 }); //#ff0000
-  geometry.vertices.push(new THREE.Vector3(0.5 * x, 0.45 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l1endpointx, l1endpointy, 0));
-  line1 = new THREE.Line(geometry, material);
-  line1.geometry.verticesNeedUpdate = true;
-  scene.add(line1);
-}
-
-latus1();
-
-function latus2() {
+function latus(initialX, initialY, finalX, finalY, latus) {
   geometry = new THREE.Geometry();
   material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(0.25 * x, 0.415 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l2endpointx, l2endpointy, 0));
-  line2 = new THREE.Line(geometry, material);
-  line2.geometry.verticesNeedUpdate = true;
-  scene.add(line2);
+  geometry.vertices.push(new THREE.Vector3(initialX, initialY, 0)); //x, y, z
+  geometry.vertices.push(new THREE.Vector3(finalX, finalY, 0));
+  switch(latus) {
+    case "line1":
+      line1 = new THREE.Line(geometry, material);
+      line1.geometry.verticesNeedUpdate = true;
+      scene.add(line1);
+      break;
+    case "line2":
+      line2 = new THREE.Line(geometry, material);
+      line2.geometry.verticesNeedUpdate = true;
+      scene.add(line2);
+      break;
+    case "line3":
+      line3 = new THREE.Line(geometry, material);
+      line3.geometry.verticesNeedUpdate = true;
+      scene.add(line3);
+      break;
+    case "line4":
+      line4 = new THREE.Line(geometry, material);
+      line4.geometry.verticesNeedUpdate = true;
+      scene.add(line4);
+      break;
+    case "line5":
+      line5 = new THREE.Line(geometry, material);
+      line5.geometry.verticesNeedUpdate = true;
+      scene.add(line5);
+      break;  
+    case "line6":
+      line6 = new THREE.Line(geometry, material);
+      line6.geometry.verticesNeedUpdate = true;
+      scene.add(line6);
+      break;
+    case "line7":
+      line7 = new THREE.Line(geometry, material);
+      line7.geometry.verticesNeedUpdate = true;
+      scene.add(line7);
+      break;
+    case "line8":
+      line8 = new THREE.Line(geometry, material);
+      line8.geometry.verticesNeedUpdate = true;
+      scene.add(line8);
+      break;
+    case "line9":
+      line9 = new THREE.Line(geometry, material);
+      line9.geometry.verticesNeedUpdate = true;
+      scene.add(line9);
+      break;
+    case "line10":
+      line10 = new THREE.Line(geometry, material);
+      line10.geometry.verticesNeedUpdate = true;
+      scene.add(line10);
+      break;
+    case "line11":
+      line11 = new THREE.Line(geometry, material);
+      line11.geometry.verticesNeedUpdate = true;
+      scene.add(line11);
+      break;
+  }
 }
-
-latus2();
-
-function latus3() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(0.25 * x, 0.3 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l3endpointx, l3endpointy, 0));
-  line3 = new THREE.Line(geometry, material);
-  line3.geometry.verticesNeedUpdate = true;
-  scene.add(line3);
-}
-
-latus3();
-
-function latus4() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(-0.05 * x, 0.1 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l4endpointx, l4endpointy, 0));
-  line4 = new THREE.Line(geometry, material);
-  line4.geometry.verticesNeedUpdate = true;
-  scene.add(line4);
-}
-
-latus4();
-
-function latus5() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(-0.05 * x, 0.1 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l5endpointx, l5endpointy, 0));
-  line5 = new THREE.Line(geometry, material);
-  line5.geometry.verticesNeedUpdate = true;
-  scene.add(line5);
-}
-
-latus5();
-
-function latus6() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(-0.05 * x, 0.1 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l6endpointx, l6endpointy, 0));
-  line6 = new THREE.Line(geometry, material);
-  line6.geometry.verticesNeedUpdate = true;
-  scene.add(line6);
-}
-
-latus6();
-
-function latus7() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(0.15 * x, -0.15 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l7endpointx, l7endpointy, 0));
-  line7 = new THREE.Line(geometry, material);
-  line7.geometry.verticesNeedUpdate = true;
-  scene.add(line7);
-}
-
-latus7();
-
-function latus8() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(-0.2 * x, -0.35 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l8endpointx, l8endpointy, 0));
-  line8 = new THREE.Line(geometry, material);
-  line8.geometry.verticesNeedUpdate = true;
-  scene.add(line8);
-}
-
-latus8();
-
-function latus9() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(-0.2 * x, -0.35 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l9endpointx, l9endpointy, 0));
-  line9 = new THREE.Line(geometry, material);
-  line9.geometry.verticesNeedUpdate = true;
-  scene.add(line9);
-}
-
-latus9();
-
-function latus10() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(-0.2 * x, -0.35 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l10endpointx, l10endpointy, 0));
-  line10 = new THREE.Line(geometry, material);
-  line10.geometry.verticesNeedUpdate = true;
-  scene.add(line10);
-}
-
-latus10();
-
-function latus11() {
-  geometry = new THREE.Geometry();
-  material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
-  geometry.vertices.push(new THREE.Vector3(-0.2 * x, -0.35 * y, 0)); //x, y, z
-  geometry.vertices.push(new THREE.Vector3(l11endpointx, l11endpointy, 0));
-  line11 = new THREE.Line(geometry, material);
-  line11.geometry.verticesNeedUpdate = true;
-  scene.add(line11);
-}
-
-latus11();
+latus(0.5*x, 0.45*y, l1endpointx, l1endpointy, 'line1');
+latus(0.25*x, 0.415*y, l2endpointx, l2endpointy, 'line2');
+latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
+latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
+latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
+latus(-0.05*x, 0.1*y, l6endpointx, l6endpointy, 'line6');
+latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
+latus(-0.2*x, -0.35*y, l8endpointx, l8endpointy, 'line8');
+latus(-0.2*x, -0.35*y, l9endpointx, l9endpointy, 'line9');
+latus(-0.2*x, -0.35*y, l10endpointx, l10endpointy, 'line10');
+latus(-0.2*x, -0.35*y, l11endpointx, l11endpointy, 'line11');
 
 function latus1scrolldown() {
   if (endpoint > 0.55 * y) {
@@ -209,7 +152,7 @@ function latus1scrolldown() {
       latus2scrolldown();
     }
     scene.remove(line1);
-    latus1();
+    latus(0.5*x, 0.45*y, l1endpointx, l1endpointy, 'line1');
   }
 }
 
@@ -234,7 +177,7 @@ function latus1scrollup() {
     }
   }
   scene.remove(line1);
-  latus1();
+  latus(0.5*x, 0.45*y, l1endpointx, l1endpointy, 'line1');
 }
 
 function latus2scrolldown() {
@@ -251,7 +194,7 @@ function latus2scrolldown() {
       l2endpointy = l2endpointy - 0.0075 * y;
     }
     scene.remove(line2);
-    latus2();
+    latus(0.25*x, 0.415*y, l2endpointx, l2endpointy, 'line2');
   }
 }
 
@@ -260,11 +203,11 @@ function latus2scrollup() {
     l2endpointy = 0.415 * y;
     latus1scrollup();
     scene.remove(line2);
-    latus2();
+    latus(0.25*x, 0.415*y, l2endpointx, l2endpointy, 'line2');
   } else {
     l2endpointy = l2endpointy + 0.0075 * y / 4;
     scene.remove(line2);
-    latus2();
+    latus(0.25*x, 0.415*y, l2endpointx, l2endpointy, 'line2');
     if (node3) {
       $('.node_3').fadeOut(250);
       document.getElementById('node3').remove();
@@ -291,7 +234,7 @@ function latus3scrolldown() {
       l3endpointy = l3endpointy - 0.004 * y;
     }
     scene.remove(line3);
-    latus3();
+    latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
   }
 }
 
@@ -303,12 +246,12 @@ function latus3scrollup() {
         l3endpointy = 0.3 * y;
         latus2scrollup();
         scene.remove(line3);
-        latus3();
+        latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
       } else {
         l3endpointx = l3endpointx + 0.006 * x / 4;
         l3endpointy = l3endpointy + 0.004 * y / 4;
         scene.remove(line3);
-        latus3();
+        latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
         if (node4) {
           $('.node_4').fadeOut(250);
           document.getElementById('node4').remove();
@@ -320,7 +263,7 @@ function latus3scrollup() {
     l3endpointx = 0.25 * x;
     l3endpointy = 0.3 * y;
     scene.remove(line3);
-    latus3();
+    latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
     latus2scrollup();
   }
 }
@@ -340,7 +283,7 @@ function latus4scrolldown() {
       l4endpointy = l4endpointy - 0.003 * y;
     }
     scene.remove(line4);
-    latus4();
+    latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
   }
 }
 
@@ -351,12 +294,12 @@ function latus4scrollup() {
       l4endpointy = 0.1 * y;
       scene.remove(line4);
       latus3scrollup();
-      latus4();
+      latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
     } else {
       l4endpointx = l4endpointx + 0.007 * x / 4;
       l4endpointy = l4endpointy + 0.003 * y / 4;
       scene.remove(line4);
-      latus4();
+      latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
       if (node5) {
         $('.node_5').fadeOut(250);
         document.getElementById('node5').remove();
@@ -368,7 +311,7 @@ function latus4scrollup() {
     l4endpointy = 0.1 * y;
     scene.remove(line4);
     latus3scrollup();
-    latus4();
+    latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
   }
 }
 
@@ -388,7 +331,7 @@ function latus5scrolldown() {
       l5endpointy = l5endpointy - 0.005 * y;
     }
     scene.remove(line5);
-    latus5();
+    latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
   }
 }
 
@@ -399,12 +342,12 @@ function latus5scrollup() {
       l5endpointy = 0.1 * y;
       scene.remove(line5);
       latus3scrollup();
-      latus5();
+      latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
     } else {
       l5endpointx = l5endpointx - 0.004 * x / 4;
       l5endpointy = l5endpointy + 0.005 * y / 4;
       scene.remove(line5);
-      latus5();
+      latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
       if (node6) {
         $('.node_6').fadeOut(250);
         document.getElementById('node6').remove();
@@ -415,7 +358,7 @@ function latus5scrollup() {
     l5endpointx = 0.15 * x;
     l5endpointy = -0.15 * y;
     scene.remove(line5);
-    latus5();
+    latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
     latus3scrollup();
   }
 }
@@ -435,7 +378,7 @@ function latus6scrolldown() {
       l6endpointy = l6endpointy - 0.001 * 1.5 * y;
     }
     scene.remove(line6);
-    latus6();
+    latus(-0.05*x, 0.1*y, l6endpointx, l6endpointy, 'line6');
   }
 }
 
@@ -445,12 +388,12 @@ function latus6scrollup() {
     l6endpointy = 0.1 * y;
     scene.remove(line6);
     latus3scrollup();
-    latus6();
+    latus(-0.05*x, 0.1*y, l6endpointx, l6endpointy, 'line6');
   } else {
     l6endpointx = l6endpointx - 0.0035 * 1.5 * x / 4;
     l6endpointy = l6endpointy + 0.001 * 1.5 * y / 4;
     scene.remove(line6);
-    latus6();
+    latus(-0.05*x, 0.1*y, l6endpointx, l6endpointy, 'line6');
     if (node7) {
       $('.node_7').fadeOut(250);
       document.getElementById('node7').remove();
@@ -478,7 +421,7 @@ function latus7scrolldown() {
       l7endpointy = l7endpointy - 0.004 * y;
     }
     scene.remove(line7);
-    latus7();
+    latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
   }
 }
 
@@ -492,12 +435,12 @@ function latus7scrollup() {
         latus5scrollup();
         latus6scrollup();
         scene.remove(line7);
-        latus7();
+        latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
       } else {
         l7endpointx = l7endpointx + 0.007 * x / 4;
         l7endpointy = l7endpointy + 0.004 * y / 4;
         scene.remove(line7);
-        latus7();
+        latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
         if (node8) {
           $('.node_8').fadeOut(250);
           document.getElementById('node8').remove();
@@ -512,7 +455,7 @@ function latus7scrollup() {
     latus5scrollup();
     latus6scrollup();
     scene.remove(line7);
-    latus7();
+    latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
   }
 }
 
@@ -531,7 +474,7 @@ function latus8scrolldown() {
       l8endpointy = l8endpointy - 0.004 * y;
     }
     scene.remove(line8);
-    latus8();
+    latus(-0.2*x, -0.35*y, l8endpointx, l8endpointy, 'line8');
   }
 }
 
@@ -542,12 +485,12 @@ function latus8scrollup() {
       l8endpointy = -0.35 * y;
       latus7scrollup();
       scene.remove(line8);
-      latus8();
+      latus(-0.2*x, -0.35*y, l8endpointx, l8endpointy, 'line8');
     } else {
       l8endpointx = l8endpointx + 0.012 * x / 2;
       l8endpointy = l8endpointy + 0.004 * y / 2;
       scene.remove(line8);
-      latus8();
+      latus(-0.2*x, -0.35*y, l8endpointx, l8endpointy, 'line8');
       if (node9) {
         $('.node_9').fadeOut(250);
         document.getElementById('node9').remove();
@@ -559,7 +502,7 @@ function latus8scrollup() {
     l8endpointy = -0.35 * y;
     latus7scrollup();
     scene.remove(line8);
-    latus8();
+    latus(-0.2*x, -0.35*y, l8endpointx, l8endpointy, 'line8');
   }
 }
 
@@ -578,7 +521,7 @@ function latus9scrolldown() {
       l9endpointy = l9endpointy - 0.012 * y;
     }
     scene.remove(line9);
-    latus9();
+    latus(-0.2*x, -0.35*y, l9endpointx, l9endpointy, 'line9');
   }
 }
 
@@ -589,12 +532,12 @@ function latus9scrollup() {
       l9endpointy = -0.35 * y;
       latus7scrollup();
       scene.remove(line9);
-      latus9();
+      latus(-0.2*x, -0.35*y, l9endpointx, l9endpointy, 'line9');
     } else {
       l9endpointx = l9endpointx + 0.002 * x;
       l9endpointy = l9endpointy + 0.012 * y;
       scene.remove(line9);
-      latus9();
+      latus(-0.2*x, -0.35*y, l9endpointx, l9endpointy, 'line9');
       if (node10) {
         $('.node_10').fadeOut(250);
         document.getElementById('node10').remove();
@@ -606,7 +549,7 @@ function latus9scrollup() {
     l9endpointy = -0.35 * y;
     latus7scrollup();
     scene.remove(line9);
-    latus9();
+    latus(-0.2*x, -0.35*y, l9endpointx, l9endpointy, 'line9');
   }
 }
 
@@ -625,7 +568,7 @@ function latus10scrolldown() {
       l10endpointy = l10endpointy - 0.005 * y;
     }
     scene.remove(line10);
-    latus10();
+    latus(-0.2*x, -0.35*y, l10endpointx, l10endpointy, 'line10');
   }
 }
 
@@ -636,12 +579,12 @@ function latus10scrollup() {
       l10endpointy = -0.35 * y;
       latus7scrollup();
       scene.remove(line10);
-      latus10();
+      latus(-0.2*x, -0.35*y, l10endpointx, l10endpointy, 'line10');
     } else {
       l10endpointx = l10endpointx - 0.009 * x;
       l10endpointy = l10endpointy + 0.005 * y;
       scene.remove(line10);
-      latus10();
+      latus(-0.2*x, -0.35*y, l10endpointx, l10endpointy, 'line10');
       if (node11) {
         $('.node_11').fadeOut(250);
         document.getElementById('node11').remove();
@@ -653,7 +596,7 @@ function latus10scrollup() {
     l10endpointy = -0.35 * y;
     latus7scrollup();
     scene.remove(line10);
-    latus10();
+    latus(-0.2*x, -0.35*y, l10endpointx, l10endpointy, 'line10');
   }
 }
 
@@ -672,7 +615,7 @@ function latus11scrolldown() {
       l11endpointy = l11endpointy - 0.004 * y;
     }
     scene.remove(line11);
-    latus11();
+    latus(-0.2*x, -0.35*y, l11endpointx, l11endpointy, 'line11');
   }
 }
 
@@ -683,12 +626,12 @@ function latus11scrollup() {
       l11endpointy = -0.35 * y;
       latus7scrollup();
       scene.remove(line11);
-      latus11();
+      latus(-0.2*x, -0.35*y, l11endpointx, l11endpointy, 'line11');
     } else {
       l11endpointx = l11endpointx - 0.0275 * x / 2;
       l11endpointy = l11endpointy + 0.004 * y / 2;
       scene.remove(line11);
-      latus11();
+      latus(-0.2*x, -0.35*y, l11endpointx, l11endpointy, 'line11');
       if (node12) {
         $('.node_12').fadeOut(250);
         document.getElementById('node12').remove();
@@ -700,7 +643,7 @@ function latus11scrollup() {
     l11endpointy = -0.35 * y;
     latus7scrollup();
     scene.remove(line11);
-    latus11();
+    latus(-0.2*x, -0.35*y, l11endpointx, l11endpointy, 'line11');
   }
 }
 
@@ -709,7 +652,7 @@ function updateDrawDown() {
     l1endpointx = -0.2 * x;
     l1endpointy = 0.35 * y;
     scene.remove(line1);
-    latus1();
+    latus(0.5*x, 0.45*y, l1endpointx, l1endpointy, 'line1');
     if (!node2) {
       createCircle('37.5%', '28.5%', 'red', 'node2');
       $('.node_2').fadeIn(500);
@@ -726,7 +669,7 @@ function updateDrawDown() {
     l2endpointx = 0.25 * x;
     l2endpointy = 0.3 * y;
     scene.remove(line2);
-    latus2();
+    latus(0.25*x, 0.415*y, l2endpointx, l2endpointy, 'line2');
     if (!node3) {
       createCircle('65.1%', '31.6%', 'red', 'node3');
       $('.node_3').fadeIn(500);
@@ -744,7 +687,7 @@ function updateDrawDown() {
       l3endpointx = 0.1 * x;
       l3endpointy = 0.2 * y;
       scene.remove(line3);
-      latus3();
+      latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
       if (endpoint < 0.8 * y) {
         endpoint = 0.8 * y;
         palagusPosition = 0.6 * y
@@ -757,7 +700,7 @@ function updateDrawDown() {
     l3endpointx = -0.05 * x;
     l3endpointy = 0.1 * y;
     scene.remove(line3);
-    latus3();
+    latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
     if (!node4) {
       createCircle('47.2%', '43.8%', 'red', 'node4');
       $('.node_4').fadeIn(500);
@@ -775,19 +718,19 @@ function updateDrawDown() {
       l4endpointx = -0.225 * x;
       l4endpointy = 0.025 * y;
       scene.remove(line4);
-      latus4();
+      latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
     }
     if (l5endpointx < 0.05 * x && l5endpointy > -0.025 * y) {
       l5endpointx = 0.05 * x;
       l5endpointy = -0.025 * y;
       scene.remove(line5);
-      latus5();
+      latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
     }
     if (l6endpointx < 0.125 * x && l6endpointy > 0.05 * y) {
       l6endpointx = 0.125 * x;
       l6endpointy = 0.05 * y;
       scene.remove(line6);
-      latus6();
+      latus(-0.05*x, 0.1*y, l6endpointx, l6endpointy, 'line6');
     }
     if (endpoint < 0.95 * y) {
       endpoint = 0.95 * y;
@@ -801,9 +744,9 @@ function updateDrawDown() {
     scene.remove(line4);
     scene.remove(line5);
     scene.remove(line6);
-    latus4();
-    latus5();
-    latus6();
+    latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
+    latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
+    latus(-0.05*x, 0.1*y, l6endpointx, l6endpointy, 'line6');
     if (!node5) {
       createCircle('25.264%', '53%', 'red', 'node5');
       $('.node_5').fadeIn(500);
@@ -830,7 +773,7 @@ function updateDrawDown() {
     if (l7endpointx > -0.025 * x && l7endpointy > -0.25) {
       l7endpointx = -0.025 * x, l7endpointy = -0.25;
       scene.remove(line7);
-      latus7();
+      latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
     }
     if (endpoint < 1.15 * y) {
       endpoint = 1.15 * y;
@@ -842,7 +785,7 @@ function updateDrawDown() {
   if (scroll > 1200) {
     l7endpointx = -0.2 * x, l7endpointy = -0.35 * y;
     scene.remove(line7);
-    latus7();
+    latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
     if (!node8) {
       createCircle('38.06%', '71.6%', 'red', 'node8');
       $('.node_8').fadeIn(500);
@@ -859,22 +802,22 @@ function updateDrawDown() {
     if (l8endpointx > -0.35 * x && l8endpointy > -0.40 * y) {
       l8endpointx = -0.35 * x, l8endpointy = -0.4 * y;
       scene.remove(line8);
-      latus8();
+      latus(-0.2*x, -0.35*y, l8endpointx, l8endpointy, 'line8');
     }
     if (l9endpointx > -0.225 * x && l9endpointy > -0.5 * y) {
       l9endpointx = -0.225 * x, l9endpointy = -0.5 * y;
       scene.remove(line9);
-      latus9();
+      latus(-0.2*x, -0.35*y, l9endpointx, l9endpointy, 'line9');
     }
     if (l10endpointx < 0.025 * x && l10endpointy > - 0.475) {
       l10endpointx = 0.025 * x, l10endpointy = -0.475 * y;
       scene.remove(line10);
-      latus10();
+      latus(-0.2*x, -0.35*y, l10endpointx, l10endpointy, 'line10');
     }
     if (l11endpointx < 0.075 * x && l11endpointy > -0.49 * y) {
       l11endpointx = 0.075 * x, l11endpointy = -0.49 * y;
       scene.remove(line11);
-      latus11();
+      latus(-0.2*x, -0.35*y, l11endpointx, l11endpointy, 'line11');
     }
     if (endpoint < 1.5 * y) {
       endpoint = 1.5 * y;
@@ -889,10 +832,10 @@ function updateDrawDown() {
     scene.remove(line9);
     scene.remove(line10);
     scene.remove(line11);
-    latus8();
-    latus9();
-    latus10();
-    latus11();
+    latus(-0.2*x, -0.35*y, l8endpointx, l8endpointy, 'line8');
+    latus(-0.2*x, -0.35*y, l9endpointx, l9endpointy, 'line9');
+    latus(-0.2*x, -0.35*y, l10endpointx, l10endpointy, 'line10');
+    latus(-0.2*x, -0.35*y, l11endpointx, l11endpointy, 'line11');
     if (!node9) {
       createCircle('18.56%', '78%', 'red', 'node9');
       $('.node_9').fadeIn(500);
@@ -955,8 +898,8 @@ function updateDrawUp() {
     l1endpointx = 0.5 * x, l1endpointy = 0.45 * y, l2endpointx = 0.25 * x, l2endpointy = 0.415 * y;
     scene.remove(line1);
     scene.remove(line2);
-    latus1();
-    latus2();
+    latus(0.5*x, 0.45*y, l1endpointx, l1endpointy, 'line1');
+    latus(0.25*x, 0.415*y, l2endpointx, l2endpointy, 'line2');
     if (endpoint > 0.65 * y) {
       endpoint = 0.65 * y;
       palagusPosition = 0.675 * y;
@@ -968,7 +911,7 @@ function updateDrawUp() {
     l3endpointx = 0.25 * x;
     l3endpointy = 0.3 * y;
     scene.remove(line3);
-    latus3();
+    latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
     if (endpoint > 0.7 * y) {
       endpoint = 0.7 * y;
       palagusPosition = 0.65 * y;
@@ -986,7 +929,7 @@ function updateDrawUp() {
       l3endpointx = 0.1 * x;
       l3endpointy = 0.2 * y;
       scene.remove(line3);
-      latus3();
+      latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
       if (endpoint > 0.8 * y) {
         endpoint = 0.8 * y;
         palagusPosition = 0.6 * y;
@@ -1000,9 +943,9 @@ function updateDrawUp() {
     scene.remove(line4);
     scene.remove(line5);
     scene.remove(line6);
-    latus4();
-    latus5();
-    latus6();
+    latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
+    latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
+    latus(-0.05*x, 0.1*y, l6endpointx, l6endpointy, 'line6');
     if (endpoint > 0.9 * y) {
       endpoint = 0.9 * y;
       palagusPosition = 0.55 * y;
@@ -1030,19 +973,19 @@ function updateDrawUp() {
       l4endpointx = -0.225 * x;
       l4endpointy = 0.025 * y;
       scene.remove(line4);
-      latus4();
+      latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
     }
     if (l5endpointx > 0.05 * x && l5endpointy < -0.025 * y) {
       l5endpointx = 0.05 * x;
       l5endpointy = -0.025 * y;
       scene.remove(line5);
-      latus5();
+      latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
     }
     if (l6endpointx > 0.125 * x && l6endpointy < 0.05 * y) {
       l6endpointx = 0.125 * x;
       l6endpointy = 0.05 * y;
       scene.remove(line6);
-      latus6();
+      latus(-0.05*x, 0.1*y, l6endpointx, l6endpointy, 'line6');
     }
     if (endpoint > 0.95 * y) {
       endpoint = 0.95 * y;
@@ -1054,7 +997,7 @@ function updateDrawUp() {
   if (scroll < 530) {
     l7endpointx = 0.15 * x, l7endpointy = -0.15 * y;
     scene.remove(line7);
-    latus7();
+    latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
     if (endpoint > 1.15 * y) {
       endpoint = 1.15 * y;
       palagusPosition = 0.425 * y;
@@ -1072,7 +1015,7 @@ function updateDrawUp() {
       l7endpointx = -0.025 * x;
       l7endpointy = -0.25;
       scene.remove(line7);
-      latus7();
+      latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
     }
     if (endpoint > 1.25 * y) {
       endpoint = 1.25 * y;
@@ -1161,17 +1104,17 @@ window.addEventListener('scroll', function () {
       scene.remove(line9);
       scene.remove(line10);
       scene.remove(line11);
-      latus1();
-      latus2();
-      latus3();
-      latus4();
-      latus5();
-      latus6();
-      latus7();
-      latus8();
-      latus9();
-      latus10();
-      latus11();
+      latus(0.5*x, 0.45*y, l1endpointx, l1endpointy, 'line1');
+      latus(0.25*x, 0.415*y, l2endpointx, l2endpointy, 'line2');
+      latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
+      latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
+      latus(-0.05*x, 0.1*y, l5endpointx, l5endpointy, 'line5');
+      latus(-0.05*x, 0.1*y, l6endpointx, l6endpointy, 'line6');
+      latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
+      latus(-0.2*x, -0.35*y, l8endpointx, l8endpointy, 'line8');
+      latus(-0.2*x, -0.35*y, l9endpointx, l9endpointy, 'line9');
+      latus(-0.2*x, -0.35*y, l10endpointx, l10endpointy, 'line10');
+      latus(-0.2*x, -0.35*y, l11endpointx, l11endpointy, 'line11');
     } else {
       scrollup()
     }
