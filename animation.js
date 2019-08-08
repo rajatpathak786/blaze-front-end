@@ -1,35 +1,38 @@
 let x = window.innerWidth;
 let y = 981;
-let endpoint = 0; //0.55*y
-let palagusPosition = y;
-let firstScroll = false;
+let endpoint = 0; // initial endpoint of palagus
+let palagusPosition = y; // initial center of palagus which is an rectangle not a line
+let firstScroll = false; // condition whether user have scrolled or not
 let aspectRatio = window.innerWidth / 981;
-let scroll = window.scrollY;
-let scene = new THREE.Scene();
-let camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 1000);
+let scroll = window.scrollY; // variable containing the scroll Y-offset
+let l1endpointx = 0.5 * x, l1endpointy = 0.45 * y; // initial endpoint for latus1 which is a line
+let l2endpointx = 0.25 * x, l2endpointy = 0.415 * y; //  initial endpoint for latus2 which is a line
+let l3endpointx = 0.25 * x, l3endpointy = 0.3 * y; //   initial endpoint for latus3 which is a line and so on till latus11 all are lines
+let l4endpointx = -0.05 * x, l4endpointy = 0.1 * y; 
+let l5endpointx = -0.05 * x, l5endpointy = 0.1 * y; 
+let l6endpointx = -0.05 * x, l6endpointy = 0.1 * y; 
+let l7endpointx = 0.15 * x, l7endpointy = -0.15 * y; 
+let l8endpointx = -0.2 * x, l8endpointy = -0.35 * y; 
+let l9endpointx = -0.2 * x, l9endpointy = -0.35 * y; 
+let l10endpointx = -0.2 * x, l10endpointy = -0.35 * y; 
+let l11endpointx = -0.2 * x, l11endpointy = -0.35 * y; 
+let node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12; // Initializing all circle nodes 
+var svgNS = "http://www.w3.org/2000/svg";
+
+let scene = new THREE.Scene(); // Creating a scene in threejs
+let camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 1000); // Creating Camera and adjusting its position 
 camera.lookAt(0, 0, 0);
 camera.position.z = 800;
-let l1endpointx = 0.5 * x, l1endpointy = 0.45 * y; // 0.7*y
-let l2endpointx = 0.25 * x, l2endpointy = 0.415 * y; //0.665*y
-let l3endpointx = 0.25 * x, l3endpointy = 0.3 * y; // 0.55*y
-let l4endpointx = -0.05 * x, l4endpointy = 0.1 * y; //0.35*y
-let l5endpointx = -0.05 * x, l5endpointy = 0.1 * y; //0.35*y
-let l6endpointx = -0.05 * x, l6endpointy = 0.1 * y; //0.35*y
-let l7endpointx = 0.15 * x, l7endpointy = -0.15 * y; //0.1*y
-let l8endpointx = -0.2 * x, l8endpointy = -0.35 * y; //-0.1*y
-let l9endpointx = -0.2 * x, l9endpointy = -0.35 * y; //-0.1*y
-let l10endpointx = -0.2 * x, l10endpointy = -0.35 * y; //-0.1*y
-let l11endpointx = -0.2 * x, l11endpointy = -0.35 * y; //-0.1*y
-let node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12;
 let renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.domElement.id = "canvasID";
 renderer.setSize(window.innerWidth, 2943);
 renderer.setClearColor('#0b0b0b');
 document.getElementById("myScene").appendChild(renderer.domElement);
+var light = new THREE.AmbientLight( 0xFFFFFF ); // soft white light
+scene.add( light );
 
-var svgNS = "http://www.w3.org/2000/svg";
-function createCircle(x, y, color, id) {
-  var myCircle = document.createElementNS(svgNS, "circle"); //to create a circle. for rectangle use "rectangle"
+function createCircle(x, y, color, id) { // function to create circle nodes
+  var myCircle = document.createElementNS(svgNS, "circle");
   myCircle.setAttributeNS(null, "id", id);
   myCircle.setAttributeNS(null, "cx", x);
   myCircle.setAttributeNS(null, "cy", y);
@@ -39,10 +42,7 @@ function createCircle(x, y, color, id) {
   document.getElementById("mySVG").appendChild(myCircle);
 }
 
-var light = new THREE.AmbientLight( 0xFFFFFF ); // soft white light
-scene.add( light );
-
-function update() {
+function update() { // function to create & update palagus 
   geometry = new THREE.BoxGeometry(15, endpoint, 0.0011)
   material = new THREE.MeshToonMaterial({ color: '#B22222', wireframe: false })
   line = new THREE.Mesh(geometry, material)
@@ -54,7 +54,7 @@ function update() {
 
 update();
 
-function latus(initialX, initialY, finalX, finalY, latus) {
+function latus(initialX, initialY, finalX, finalY, latus) { // function to create & update latus.
   geometry = new THREE.Geometry();
   material = new THREE.LineBasicMaterial({ color: '#B22222', linewidth: 4 });
   geometry.vertices.push(new THREE.Vector3(initialX, initialY, 0)); //x, y, z
@@ -117,7 +117,7 @@ function latus(initialX, initialY, finalX, finalY, latus) {
       break;
   }
 }
-latus(0.5*x, 0.45*y, l1endpointx, l1endpointy, 'line1');
+latus(0.5*x, 0.45*y, l1endpointx, l1endpointy, 'line1'); // Creating latus1 initially and so on.
 latus(0.25*x, 0.415*y, l2endpointx, l2endpointy, 'line2');
 latus(0.25*x, 0.3*y, l3endpointx, l3endpointy, 'line3');
 latus(-0.05*x, 0.1*y, l4endpointx, l4endpointy, 'line4');
@@ -129,7 +129,7 @@ latus(-0.2*x, -0.35*y, l9endpointx, l9endpointy, 'line9');
 latus(-0.2*x, -0.35*y, l10endpointx, l10endpointy, 'line10');
 latus(-0.2*x, -0.35*y, l11endpointx, l11endpointy, 'line11');
 
-function latus1scrolldown() {
+function latus1scrolldown() { // function to update latus1 endpoint coordinates through on scroll event handler(scroll down).
   if (endpoint > 0.55 * y) {
     if (l1endpointx <= -0.2 * x || l1endpointy <= 0.35 * y) {
       l1endpointx = -0.2 * x;
@@ -145,7 +145,7 @@ function latus1scrolldown() {
     }
     if (l1endpointx < 0.25 * x) {
       if (!node1) {
-        $('.node_1').fadeIn(500);
+        $('.node_1').fadeIn(500); // condition for fading in node labels
         createCircle('65.2%', '24.56%', 'red', 'node1');
         node1 = true;
       }
@@ -156,7 +156,7 @@ function latus1scrolldown() {
   }
 }
 
-function latus1scrollup() {
+function latus1scrollup() { // function to update latus1 endpoint coordinates through on scroll event handler(scroll up).
   if (l1endpointx >= 0.5 * x || l1endpointy >= 0.45 * y) {
     l1endpointx = 0.5 * x;
     l1endpointy = 0.45 * y;
@@ -171,7 +171,7 @@ function latus1scrollup() {
   }
   if (l1endpointx >= 0.25 * x || l1endpointy >= 0.415 * y) {
     if (node1) {
-      $('.node_1').fadeOut(250);
+      $('.node_1').fadeOut(250); //condition for fading out node labels.
       document.getElementById('node1').remove();
       node1 = false;
     }
@@ -409,7 +409,7 @@ function latus7scrolldown() {
       l7endpointy = -0.35 * y;
       if (!node8) {
         $('.node_8').fadeIn(500);
-        createCircle('38.06%', '71.6%', 'red', 'node8');
+        createCircle('38.06%', '71.45%', 'red', 'node8');
         node8 = true;
       }
       latus8scrolldown();
@@ -647,7 +647,7 @@ function latus11scrollup() {
   }
 }
 
-function updateDrawDown() {
+function updateDrawDown() { // function updating endpoint coordinates(scroll down) for each latus and palagus by y-offset
   if (scroll > 190) {
     l1endpointx = -0.2 * x;
     l1endpointy = 0.35 * y;
@@ -787,7 +787,7 @@ function updateDrawDown() {
     scene.remove(line7);
     latus(0.15*x, -0.15*y, l7endpointx, l7endpointy, 'line7');
     if (!node8) {
-      createCircle('38.06%', '71.6%', 'red', 'node8');
+      createCircle('38.06%', '71.45%', 'red', 'node8');
       $('.node_8').fadeIn(500);
       node8 = true;
     }
@@ -865,7 +865,7 @@ function updateDrawDown() {
   }
 }
 
-function scrolldown() {
+function scrolldown() { //scroll down functionality
   updateDrawDown();
   if (!firstScroll) {
     firstScroll = true;
@@ -883,7 +883,7 @@ function scrolldown() {
   update();
 }
 
-function updateDrawUp() {
+function updateDrawUp() { // function updating endpoint coordinates(scroll up) for each latus and palagus by y-offset
   if (scroll < 100) {
     if (node3) {
       $('.node_3').fadeOut(250);
@@ -1059,7 +1059,7 @@ function updateDrawUp() {
   }
 }
 
-function scrollup() {
+function scrollup() { // scroll up functionality
   updateDrawUp();
   if ((l2endpointy > 0.3 * y && endpoint > 0.585 * y) || (l3endpointy > 0.1 * y && endpoint > 0.7 * y) || (l5endpointy > -0.15 * y && endpoint > 0.9 * y) || (l7endpointy > -0.35 * y && endpoint > 1.15 * y) || (l9endpointy > -0.65 * y && endpoint > 1.35 * y)) {
     endpoint = endpoint - 0.008 * y; 
@@ -1087,7 +1087,7 @@ window.addEventListener('scroll', function () {
     scrolldown()
   } else if (scroll > window.scrollY) {
     scroll = window.scrollY;
-    if (scroll == 0) {
+    if (scroll == 0) { // condition setting all latus and palagus position back to initial.
       endpoint = 0;
       palagusPosition = y;
       scene.remove(line);
@@ -1121,7 +1121,7 @@ window.addEventListener('scroll', function () {
   }
 });
 
-function initialNode() {
+function initialNode() { // condition setting back all node to initial.
   if (node1) {
     $('.node_1').fadeOut(250);
     document.getElementById('node1').remove();
