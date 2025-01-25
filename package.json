@@ -1,0 +1,26 @@
+{
+  "name": "blaze-jquery",
+  "version": "1.0.0",
+  "description": "BLAZE FRONT-END",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/rpathak1/blaze-front-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/rpathak1/blaze-front-end/issues"
+  },
+  "homepage": "https://gitlab.com/rpathak1/blaze-front-end#README",
+  "dependencies": {
+    "@dogstudio/highway": "^2.1.2",
+    "gsap": "^2.1.3",
+    "parcel-bundler": "^1.12.3",
+    "swup": "^2.0.5",
+    "three": "^0.106.2"
+  }
+}
